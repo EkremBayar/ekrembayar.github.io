@@ -10,5 +10,21 @@
   "description": "Makale 2 hakkında kısa açıklama",
   "image": "assets/img/ekrem.jpg",
   "link": "articles/makale2.html"
-}
+},
+  ,
+    {
+        "title": "Makale 3",
+        "link": "articles/makale3.html",
+        "image": "assets/img/article3.jpg"
+    },
+    {
+        "title": "Makale 4",
+        "link": "articles/makale4.html",
+        "image": "assets/img/article4.jpg"
+    },
+    {
+        "title": "Makale 5",
+        "link": "articles/makale5.html",
+        "image": "assets/img/article5.jpg"
+    }
 ]
