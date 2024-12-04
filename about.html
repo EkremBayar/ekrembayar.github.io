@@ -17,33 +17,204 @@
     <style>
         .about-section {
             display: flex;
-            align-items: center; /* Fotoğraf ve yazıyı sola hizalar */
-            gap: 20px; /* Fotoğraf ve yazı arasına boşluk bırakır */
+            align-items: center;
+            gap: 20px;
             margin-top: 20px;
         }
         .about-photo {
-            width: 250px; /* Fotoğraf boyutunu ayarlıyoruz */
-            height: 250px; /* Fotoğrafın yüksekliğini ayarlıyoruz */
-            object-fit: cover; /* Fotoğrafın oranını bozmadan sığmasını sağlıyoruz */
-            border-radius: 15px; /* Fotoğrafın köşelerini yuvarlatıyoruz */
-            margin-bottom: 10px; /* Fotoğrafın altına biraz boşluk bırakıyoruz */
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin-bottom: 10px;
         }
         .about-text {
             flex: 1;
             font-size: 1.2rem;
         }
         .about-text a {
-            color: #007bff; /* Link rengi */
-            text-decoration: none; /* Altı çizili kaldırıyoruz */
+            color: #007bff;
+            text-decoration: none;
         }
         .about-text a:hover {
-            text-decoration: underline; /* Hover durumunda altını çiziyoruz */
+            text-decoration: underline;
+        }
+
+        /* Tab içerikleri arasındaki boşluğu azaltmak için */
+        #tab1 {
+            margin-top: -40px;
+        }
+
+        /* Sosyal medya ikonlarını şık hale getirme */
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            font-size: 2rem;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #007bff; /* Hover durumunda renk değişimi */
+            transform: translateY(-5px); /* Hoverda hafif yukarı kaydırma */
+        }
+
+        /* Sosyal medya ikonları için yuvarlak efekt */
+        .social-icons a {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            border-radius: 50%;
+            text-align: center;
+            background-color: #f1f1f1;
+        }
+
+        .social-icons a:hover {
+            background-color: #007bff;
+            color: white; /* Hoverda beyaz renk */
+        }
+
+        /* Spor Analitiği Mentörlük Başlığı ve Açıklama */
+        .mentorship-section {
+            margin-top: 40px;
+            text-align: center;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .mentorship-section h3 {
+            color: #007bff;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .mentorship-section p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .mentorship-section a {
+            color: #007bff;
+            font-size: 1.2rem;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .mentorship-section a:hover {
+            text-decoration: underline;
         }
         
-        /* Tab içerikleri arasındaki boşluğu azaltmak için */
-    #tab1 {
-        margin-top: -40px;  /* Bu değeri 0'a çekebilirsiniz, ya da daha küçük bir değer kullanabilirsiniz */
-    }
+        /* Özgeçmiş kısmının stilini şık bir şekilde tasarlıyoruz */
+        /* Özgeçmiş kısmının stilini şık bir şekilde tasarlıyoruz */
+        .resume-section {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #333;
+            text-align: center;
+            margin-bottom: 15px;
+            line-height: 0.1;  /* Line-height değerini azaltıyoruz */
+        }
+        
+        .role {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #555;
+            text-align: center;
+            margin-bottom: 30px;
+            line-height: 0.1;  /* Line-height değerini azaltıyoruz */
+        }
+        
+        .resume-content {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #555;
+            text-align: justify;
+        }
+        
+        .resume-content p {
+            margin-bottom: 15px;
+        }
+        
+        /* Mobil uyumlu tasarım için */
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .role {
+                font-size: 1.1rem;
+            }
+            
+            .resume-content {
+                font-size: 1rem;
+            }
+        }
+        
+        /* About Randevu Al */
+        .custom-button {
+          display: inline-block;
+          padding: 12px 30px;
+          background-color: #007bff; /* Buton rengi */
+          color: white; /* Başlangıçta yazı görünür */
+          text-align: center;
+          border-radius: 50px; /* Yuvarlak köşeler */
+          text-decoration: none;
+          font-size: 16px;
+          font-weight: 600;
+          position: relative;
+          transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        
+        .mentorship-section a {
+            color: white;
+            font-size: 1.2rem;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .custom-button:hover {
+          background-color: #0056b3; /* Hover rengi */
+          transform: translateY(-5px); /* Hover ile buton yukarı kayar */
+        }
+        
+        .custom-button:active {
+          background-color: #004085; /* Tıklanma rengi */
+          transform: translateY(0); /* Tıklanırken yukarı kayma efekti iptal edilir */
+        }
+        
+        .custom-button::before {
+          content: ''; /* Boş içerik */
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 123, 255, 0.1); /* Hafif arka plan rengi */
+          border-radius: 50px;
+          transition: opacity 0.3s ease;
+          opacity: 0; /* Başlangıçta görünmez */
+        }
+        
+        .custom-button:hover::before {
+          opacity: 1; /* Hover durumunda arka plan rengi belirginleşir */
+        }
+        /* About Randevu Al - Bitiş */
+
 
 
     </style>
@@ -84,83 +255,103 @@
 
     <!-- Main Content-->
     <main class="mb-4">
-    <div class="container-fluid px-5 px-lg-6"> <!-- Padding değerini arttırdık -->
-        <div class="row gx-4 gx-lg-5 justify-content-center">
-            <!-- İçeriğin genişliğini artırmak için col sınıflarını değiştirdik -->
-            <div class="col-md-12 col-lg-10 col-xl-9"> <!-- Daha geniş bir alan sağladık -->
-                <!-- Tabs -->
-                <ul class="nav nav-tabs" id="myTab" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <a class="nav-link active" id="tab1-tab" data-bs-toggle="tab" href="#tab1" role="tab" aria-controls="tab1" aria-selected="true">Hakkımda</a>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <a class="nav-link" id="tab2-tab" data-bs-toggle="tab" href="#tab2" role="tab" aria-controls="tab2" aria-selected="false">Sosyal Medya & İletişim</a>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <a class="nav-link" id="tab3-tab" data-bs-toggle="tab" href="#tab3" role="tab" aria-controls="tab3" aria-selected="false">Özgeçmiş</a>
-                    </li>
-                </ul>
-                <div class="tab-content" id="myTabContent">
-                    <!-- Tab 1 - Hakkımda -->
-                    <div class="tab-pane fade show active" id="tab1" role="tabpanel" aria-labelledby="tab1-tab">
-                        <div class="about-section">
-                            <div class="about-photo-container">
-                                <img class="about-photo" src="assets/img/ekrem.jpg" alt="Ekrem Bayar" />
+        <div class="container-fluid px-5 px-lg-6">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-12 col-lg-10 col-xl-9">
+                    <!-- Tabs -->
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link active" id="tab1-tab" data-bs-toggle="tab" href="#tab1" role="tab" aria-controls="tab1" aria-selected="true">Hakkımda</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link" id="tab2-tab" data-bs-toggle="tab" href="#tab2" role="tab" aria-controls="tab2" aria-selected="false">Sosyal Medya & İletişim</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link" id="tab3-tab" data-bs-toggle="tab" href="#tab3" role="tab" aria-controls="tab3" aria-selected="false">Özgeçmiş</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="myTabContent">
+                        <!-- Tab 1 - Hakkımda -->
+                        <div class="tab-pane fade show active" id="tab1" role="tabpanel" aria-labelledby="tab1-tab">
+                            <div class="about-section">
+                                <div class="about-photo-container">
+                                    <img class="about-photo" src="assets/img/ekrem.jpg" alt="Ekrem Bayar" />
+                                    <div class="about-text">
+                                        <h3 style="text-align:center"><a href="https://www.linkedin.com/in/ekrem-bayar/" target="_blank">Ekrem Bayar</a></h3>
+                                    </div>
+                                </div>
                                 <div class="about-text">
-                                    <h3 style="text-align:center"><a href="https://www.linkedin.com/in/ekrem-bayar/" target="_blank">Ekrem Bayar</a></h3>
+                                    <p>Profesyonel deneyimim ve teknik bilgimle, spor analitiğinin nasıl uygulanacağını ve veri biliminin gücünü paylaşmak için buradayım.</p>
+                                    <p>Spor analitiği, spor kulüplerinin rakiplerine karşı üstünlük sağlamasına, sürdürülebilir finansal başarı ve sportif başarıya ulaşmasına yardımcı olmak için kullanılmaktadır. Spor verilerini anlamlandırmak ve bu bilgileri kullanarak daha akıllı kararlar almak isteyen herkese yardımcı olmayı hedefliyorum.</p>
+                                    <p>Siz de spor dünyasında veri biliminin gücünü keşfetmek, spor kulüplerinin başarısını artırmak ve bu alanda derinlemesine bilgi edinmek istiyorsanız, doğru yerdesiniz.</p>
+                                    <p>Takipte kalın ve birlikte daha fazlasını öğrenelim!</p>
                                 </div>
                             </div>
-                            <div class="about-text">
-                                <p>Profesyonel deneyimim ve teknik bilgimle, spor analitiğinin nasıl uygulanacağını ve veri biliminin gücünü paylaşmak için buradayım.</p>
-                                <p>Spor analitiği, spor kulüplerinin rakiplerine karşı üstünlük sağlamasına, sürdürülebilir finansal başarı ve sportif başarıya ulaşmasına yardımcı olmak için kullanılmaktadır. Spor verilerini anlamlandırmak ve bu bilgileri kullanarak daha akıllı kararlar almak isteyen herkese yardımcı olmayı hedefliyorum.</p>
-                                <p>Siz de spor dünyasında veri biliminin gücünü keşfetmek, spor kulüplerinin başarısını artırmak ve bu alanda derinlemesine bilgi edinmek istiyorsanız, doğru yerdesiniz.</p>
-                                <p>Takipte kalın ve birlikte daha fazlasını öğrenelim!</p>
+                        </div>
+                        <!-- Tab 2 - Sosyal Medya Hesaplarım -->
+                        <div class="tab-pane fade" id="tab2" role="tabpanel" aria-labelledby="tab2-tab">
+                          <p style="text-align:center">Tüm sosyal medya hesaplarımdan beni takip edebilirsiniz!</p>
+                            <div class="social-icons text-center mt-4">
+                                <a href="https://www.linkedin.com/in/ekrem-bayar/" target="_blank">
+                                    <i class="fab fa-linkedin"></i>
+                                </a>
+                                <a href="https://x.com/EkremBayar_" target="_blank">
+                                    <i class="fa-brands fa-square-twitter"></i>
+                                </a>
+                                <a href="https://www.instagram.com/ekrembayar_" target="_blank">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="https://github.com/EkremBayar" target="_blank">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="https://www.kaggle.com/ekrembayar" target="_blank">
+                                    <i class="fab fa-kaggle"></i>
+                                </a>
+                                <a href="https://www.youtube.com/channel/UCB_2RXBvSw7NF6P9dQlsH1Q" target="_blank">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                            </div>
+
+                            <!-- Mentörlük Başlığı ve Açıklaması -->
+                            <div class="mentorship-section">
+                                <h3>Spor Analitiği Mentörlük ve Kariyer Önerileri</h3>
+                                <p>Spor analitiği kariyerinize başlamak ya da bu alanda daha da ilerlemek mi istiyorsunuz? Sizlere özel olarak, spor analitiği kariyer önerileri hakkında 1 saatlik online görüşme imkanı sunuyorum!</p>
+                                <a href="https://superpeer.com/ekrembayar/-/spor-analitigi-kariyer-onerileri?s=d" target="_blank" class="custom-button">Randevu Al</a>
                             </div>
                         </div>
-                    </div>
-                    <!-- Tab 2 - Sosyal Medya Hesaplarım -->
-                    <div class="tab-pane fade" id="tab2" role="tabpanel" aria-labelledby="tab2-tab">
-                        <div class="social-icons text-center mt-4">
-                            <a href="https://www.linkedin.com/in/ekrem-bayar/" target="_blank">
-                                <i class="fab fa-linkedin"></i>
-                            </a>
-                            <a href="https://x.com/EkremBayar_" target="_blank">
-                                <i class="fa-brands fa-square-x-twitter"></i>
-                            </a>
-                            <a href="https://www.instagram.com/ekrembayar_" target="_blank">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-                            <a href="https://github.com/EkremBayar" target="_blank">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            <a href="https://www.kaggle.com/ekrembayar" target="_blank">
-                                <i class="fab fa-kaggle"></i>
-                            </a>
-                            <a href="https://www.youtube.com/channel/UCB_2RXBvSw7NF6P9dQlsH1Q" target="_blank">
-                                <i class="fab fa-youtube"></i>
-                            </a>
-                            <a href="https://superpeer.com/ekrembayar/-/spor-analitigi-kariyer-onerileri?s=d" target="_blank">
-                                <i class="fab fa-superpeer"></i>
-                            </a>
+                        <!-- Tab 3 - Özgeçmişim -->
+                        <div class="tab-pane fade" id="tab3" role="tabpanel" aria-labelledby="tab3-tab">
+                            <div class="resume-section">
+                              <h3 class="section-title">Ekrem Bayar</h3>
+                              <p class="role">📊 Data Scientist | Scouting ⚽️</p>
+                              
+                              <div class="resume-content">
+                                  <p>
+                                      Yıldız Teknik Üniversitesi İstatistik Bölümü’nden 2019 yılında lisans, 2022 yılında yüksek lisans derecesiyle mezun oldum. Şu anda doktora çalışmalarımı sürdürmekteyim.
+                                  </p>
+                                  <p>
+                                      Sahibinden.com, KPMG, Doğuş Teknoloji ve SabancıDx gibi öncü firmalarda veri bilimci olarak görev aldım. Bu süreçte makine öğrenmesi, istatistiksel analizler, uygulama geliştirme, optimizasyon ve veri analitiği gibi alanlarda birçok projeyi başarıyla hayata geçirdim.
+                                  </p>
+                                  <p>
+                                      Eğitim ve iş yaşamımın dışında, spor analitiği üzerine hobi olarak başladığım çalışmalar, zamanla uzmanlık alanım haline geldi. Mayıs 2022’den bu yana Fenerbahçe Futbol A Takımı’nın scouting departmanında Data Scientist/Analyst/Engineer olarak görev yapıyorum. Bu pozisyonda oyuncu keşfi ve transfer süreçlerine yönelik veri odaklı analiz ve projelerle hem Fenerbahçe’ye hem de Türk futboluna katkı sağlıyorum.
+                                  </p>
+                                  <p>
+                                      Ayrıca, spor analitiği ve scouting alanında bilgi paylaşımı ve eğitimi misyon edinerek bilgi birikimimi daha geniş bir kitleyle buluşturuyorum.
+                                  </p>
+                              </div>
+                          </div>
                         </div>
-                    </div>
-                    <!-- Tab 3 - Özgeçmişim -->
-                    <div class="tab-pane fade" id="tab3" role="tabpanel" aria-labelledby="tab3-tab">
-                        <p>Özgeçmişim hakkında detaylar buraya gelecek.</p>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</main>
-
+    </main>
 
     <!-- Footer-->
     <footer class="border-top">
         <div class="container px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-md-10 col-lg-8 col-xl-7">
-                    
                     <div class="small text-center text-muted fst-italic">Copyright &copy; Ekrem Bayar</div>
                 </div>
             </div>
@@ -173,4 +364,5 @@
     <script src="js/scripts.js"></script>
 </body>
 </html>
+
 
