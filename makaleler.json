@@ -2,7 +2,13 @@
   {
   "title": "Makale 1",
   "description": "Makale 1 hakkında kısa açıklama",
-  "image": "assets/img/makale1-thumbnail.jpg",
+  "image": "assets/img/ekrem.jpg",
+  "link": "articles/makale1.html"
+},
+  {
+  "title": "Makale 2",
+  "description": "Makale 2 hakkında kısa açıklama",
+  "image": "assets/img/ekrem.jpg",
   "link": "articles/makale1.html"
 }
 ]
