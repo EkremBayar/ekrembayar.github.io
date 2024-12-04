@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Clean Blog - Spor Analitiği Theme</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
+    <style>
+        .about-section {
+            display: flex;
+            align-items: center; /* Fotoğraf ve yazıyı sola hizalar */
+            gap: 20px; /* Fotoğraf ve yazı arasına boşluk bırakır */
+            margin-top: 20px;
+        }
+        .about-photo {
+            width: 250px; /* Fotoğraf boyutunu ayarlıyoruz */
+            height: 250px; /* Fotoğrafın yüksekliğini ayarlıyoruz */
+            object-fit: cover; /* Fotoğrafın oranını bozmadan sığmasını sağlıyoruz */
+            border-radius: 15px; /* Fotoğrafın köşelerini yuvarlatıyoruz */
+            margin-bottom: 10px; /* Fotoğrafın altına biraz boşluk bırakıyoruz */
+        }
+        .about-text {
+            flex: 1;
+            font-size: 1.2rem;
+        }
+        .about-text a {
+            color: #007bff; /* Link rengi */
+            text-decoration: none; /* Altı çizili kaldırıyoruz */
+        }
+        .about-text a:hover {
+            text-decoration: underline; /* Hover durumunda altını çiziyoruz */
+        }
+        
+        /* Tab içerikleri arasındaki boşluğu azaltmak için */
+    #tab1 {
+        margin-top: -40px;  /* Bu değeri 0'a çekebilirsiniz, ya da daha küçük bir değer kullanabilirsiniz */
+    }
+
+
+    </style>
+</head>
+<body>
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+        <div class="container px-4 px-lg-5">
+            <a class="navbar-brand" href="index.html">Spor Analitiği</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto py-4 py-lg-0">
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="index.html">Ana Sayfa</a></li>
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="about.html">Hakkımda</a></li>
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="post.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="contact.html">İletişim</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header-->
+    <header class="masthead" style="background-image: url('assets/img/home-bg.jpg')">
+        <div class="container position-relative px-4 px-lg-5">
+            <div class="row gx-5 gx-lg-6 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <div class="page-heading">
+                        <h1>Hakkımda</h1>
+                        <span class="subheading">Merhaba, ben Ekrem!</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content-->
+    <main class="mb-4">
+    <div class="container-fluid px-5 px-lg-6"> <!-- Padding değerini arttırdık -->
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <!-- İçeriğin genişliğini artırmak için col sınıflarını değiştirdik -->
+            <div class="col-md-12 col-lg-10 col-xl-9"> <!-- Daha geniş bir alan sağladık -->
+                <!-- Tabs -->
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link active" id="tab1-tab" data-bs-toggle="tab" href="#tab1" role="tab" aria-controls="tab1" aria-selected="true">Hakkımda</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link" id="tab2-tab" data-bs-toggle="tab" href="#tab2" role="tab" aria-controls="tab2" aria-selected="false">Sosyal Medya & İletişim</a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link" id="tab3-tab" data-bs-toggle="tab" href="#tab3" role="tab" aria-controls="tab3" aria-selected="false">Özgeçmiş</a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                    <!-- Tab 1 - Hakkımda -->
+                    <div class="tab-pane fade show active" id="tab1" role="tabpanel" aria-labelledby="tab1-tab">
+                        <div class="about-section">
+                            <div class="about-photo-container">
+                                <img class="about-photo" src="assets/img/ekrem.jpg" alt="Ekrem Bayar" />
+                                <div class="about-text">
+                                    <h3 style="text-align:center"><a href="https://www.linkedin.com/in/ekrem-bayar/" target="_blank">Ekrem Bayar</a></h3>
+                                </div>
+                            </div>
+                            <div class="about-text">
+                                <p>Profesyonel deneyimim ve teknik bilgimle, spor analitiğinin nasıl uygulanacağını ve veri biliminin gücünü paylaşmak için buradayım.</p>
+                                <p>Spor analitiği, spor kulüplerinin rakiplerine karşı üstünlük sağlamasına, sürdürülebilir finansal başarı ve sportif başarıya ulaşmasına yardımcı olmak için kullanılmaktadır. Spor verilerini anlamlandırmak ve bu bilgileri kullanarak daha akıllı kararlar almak isteyen herkese yardımcı olmayı hedefliyorum.</p>
+                                <p>Siz de spor dünyasında veri biliminin gücünü keşfetmek, spor kulüplerinin başarısını artırmak ve bu alanda derinlemesine bilgi edinmek istiyorsanız, doğru yerdesiniz.</p>
+                                <p>Takipte kalın ve birlikte daha fazlasını öğrenelim!</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Tab 2 - Sosyal Medya Hesaplarım -->
+                    <div class="tab-pane fade" id="tab2" role="tabpanel" aria-labelledby="tab2-tab">
+                        <div class="social-icons text-center mt-4">
+                            <a href="https://www.linkedin.com/in/ekrem-bayar/" target="_blank">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="https://x.com/EkremBayar_" target="_blank">
+                                <i class="fa-brands fa-square-x-twitter"></i>
+                            </a>
+                            <a href="https://www.instagram.com/ekrembayar_" target="_blank">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://github.com/EkremBayar" target="_blank">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://www.kaggle.com/ekrembayar" target="_blank">
+                                <i class="fab fa-kaggle"></i>
+                            </a>
+                            <a href="https://www.youtube.com/channel/UCB_2RXBvSw7NF6P9dQlsH1Q" target="_blank">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                            <a href="https://superpeer.com/ekrembayar/-/spor-analitigi-kariyer-onerileri?s=d" target="_blank">
+                                <i class="fab fa-superpeer"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Tab 3 - Özgeçmişim -->
+                    <div class="tab-pane fade" id="tab3" role="tabpanel" aria-labelledby="tab3-tab">
+                        <p>Özgeçmişim hakkında detaylar buraya gelecek.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+
+    <!-- Footer-->
+    <footer class="border-top">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    
+                    <div class="small text-center text-muted fst-italic">Copyright &copy; Ekrem Bayar</div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+</body>
+</html>
+
