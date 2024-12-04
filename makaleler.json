@@ -1,35 +1,35 @@
 [
   {
-  "title": "Makale 1",
+  "title": "Spor Analitiğinde kullanılan teknolojiler nelerdir?",
   "description": "Makale 1 hakkında kısa açıklama",
   "image": "assets/img/ekrem.jpg",
   "link": "articles/makale1.html"
 },
   {
-  "title": "Makale 2",
+  "title": "Scouting nedir?",
   "description": "Makale 2 hakkında kısa açıklama",
   "image": "assets/img/ekrem.jpg",
   "link": "articles/makale2.html"
 },
 {
-  "title": "Makale 3",
+  "title": "Web Scraping - Transfermarkt ve Football Reference",
   "link": "articles/makale3.html",
-  "image": "assets/img/article3.jpg"
+  "image": "assets/img/ekrem.jpg"
 },
 {
-  "title": "Makale 4",
+  "title": "Veri Zenginleştirme",
   "link": "articles/makale4.html",
-  "image": "assets/img/article4.jpg"
+  "image": "assets/img/ekrem.jpg"
 },
 {
-  "title": "Makale 5",
+  "title": "Spor Analitiğine nasıl başlarım?",
   "link": "articles/makale5.html",
-  "image": "assets/img/article5.jpg"
+  "image": "assets/img/ekrem.jpg"
 },
 {
-  "title": "Nasıl Başlarım",
+  "title": "Raporlama",
   "link": "articles/makale6.html",
-  "image": "assets/img/article5.jpg"
+  "image": "assets/img/ekrem.jpg"
 }
     
 ]
