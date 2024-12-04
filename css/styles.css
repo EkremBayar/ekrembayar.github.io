@@ -10796,3 +10796,13 @@ header.masthead .post-heading .meta a {
     font-size: 2.25rem;
   }
 }
+
+/* Footer Sabitleme için */
+footer {
+    margin-top: auto; /* Footer'ı sayfa sonuna itmek için */
+    background-color: #f8f9fa;
+    padding: 10px 0;
+    text-align: center;
+    font-size: 14px;
+    color: #6c757d;
+}
