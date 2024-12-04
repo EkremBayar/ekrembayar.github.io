@@ -30,10 +30,10 @@
         }
 
         .post-container {
-            display: flex;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Otomatik olarak 200px genişliğinde ve eşit aralıklarla sütunlar */
             gap: 30px;
-            justify-content: space-between;
+            justify-items: center; /* Ortalamak için */
             margin-top: 30px;
         }
 
@@ -45,10 +45,20 @@
             text-align: center;
         }
 
+        
         .post img {
-            max-width: 100%;
-            height: auto;
+            width: 150px; /* Görselin genişliği, kapsayıcı genişliğe göre ayarlanacak */
+            height: 150px; /* Yükseklik sabit olacak */
+            object-fit: cover; /* Görselin oranını koruyarak içine sığacak şekilde kesilecek */
             border-radius: 5px;
+        }
+        
+        .post-thumbnail {
+            width: 100px; /* Thumbnail için sabit genişlik */
+            height: 100px; /* Thumbnail için sabit yükseklik */
+            object-fit: cover; /* Thumbnail görseli kesilmeden sığacak şekilde yerleştirilecek */
+            border-radius: 5px;
+            margin-bottom: 10px; /* Başlık ile thumbnail arasındaki boşluk */
         }
 
         .post-title {
@@ -214,12 +224,19 @@
                 postContainer.classList.add('post-container');
         
                 currentArticles.forEach(post => {
+                    // Undefined değerlerini kontrol et ve boş bırak
+                    const postTitle = post.title || 'Başlık bulunamadı';  // Başlık undefined ise varsayılan metin
+                    const postImage = post.image || 'assets/default-image.jpg';  // Görsel undefined ise varsayılan görsel
+                    const postThumbnail = post.thumbnail || 'assets/default-thumbnail.jpg';  // Thumbnail görseli
+                    const postLink = post.link || '#';  // Link undefined ise varsayılan link
+        
                     const postElement = document.createElement('div');
                     postElement.classList.add('post');
                     postElement.innerHTML = `
-                        <a href="${post.link}">
-                            <img src="${post.image}" alt="${post.title}">
-                            <div class="post-title">${post.title}</div>
+                        <a href="${postLink}">
+                            <img class="post-thumbnail" src="${postThumbnail}" alt="${postTitle}"> <!-- Thumbnail Görseli -->
+                            <img src="${postImage}" alt="${postTitle}">  <!-- Ana Görsel -->
+                            <div class="post-title">${postTitle}</div>
                             <div class="post-date">${post.date}</div> <!-- Yayınlanan tarihi ekledik -->
                         </a>
                     `;
