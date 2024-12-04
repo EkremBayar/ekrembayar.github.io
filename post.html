@@ -44,6 +44,12 @@
             align-items: center;
             text-align: center;
         }
+        
+        .post-published_date {
+            font-size: 0.9rem;  /* Yazı boyutunu küçültüyoruz */
+            color: #777;        /* Yazının rengini biraz daha açık gri yapıyoruz (isteğe bağlı) */
+            margin-top: 5px;    /* Tarih ile başlık arasına biraz boşluk ekliyoruz */
+        }
 
         
         .post img {
@@ -187,18 +193,23 @@
         
         // makaleler.json dosyasını GitHub üzerinden yükle
         fetch('https://raw.githubusercontent.com/EkremBayar/ekrembayar.github.io/main/makaleler.json')
-            .then(response => response.json())
-            .then(data => {
-                // Makaleleri tarihe göre sıralıyoruz (en son tarihler önce gelecek)
-                articlesData = data.sort((a, b) => new Date(b.date) - new Date(a.date));
-                filteredArticles = articlesData; // Başlangıçta tüm makalelerle başla
-                displayArticles();
-                setupPagination();
-            })
-            .catch(error => {
-                console.error('Makale verileri yüklenemedi:', error);
-                document.getElementById('no-articles').innerHTML = "Henüz bir makale yayınlanmamış!";
+        .then(response => response.json())
+        .then(data => {
+            // Makaleleri tarihe göre sıralıyoruz (en son tarihler önce gelecek)
+            articlesData = data.sort((a, b) => {
+                // Tarih formatının doğru olduğundan emin olun
+                const dateA = new Date(a.published_date); 
+                const dateB = new Date(b.published_date);
+                return dateB - dateA;  // Zaman damgalarına göre azalan sıralama
             });
+            filteredArticles = articlesData; // Başlangıçta tüm makalelerle başla
+            displayArticles();
+            setupPagination();
+        })
+        .catch(error => {
+            console.error('Makale verileri yüklenemedi:', error);
+            document.getElementById('no-articles').innerHTML = "Henüz bir makale yayınlanmamış!";
+        });
         
         // Makaleleri sayfada göster
         function displayArticles() {
@@ -235,9 +246,9 @@
                     postElement.innerHTML = `
                         <a href="${postLink}">
                             <img class="post-thumbnail" src="${postThumbnail}" alt="${postTitle}"> <!-- Thumbnail Görseli -->
-                            <img src="${postImage}" alt="${postTitle}">  <!-- Ana Görsel -->
+                            
                             <div class="post-title">${postTitle}</div>
-                            <div class="post-date">${post.date}</div> <!-- Yayınlanan tarihi ekledik -->
+                            <div class="post-published_date">${post.published_date}</div> <!-- Yayınlanan tarihi ekledik -->
                         </a>
                     `;
                     postContainer.appendChild(postElement);

@@ -10508,11 +10508,41 @@ color: #6c757d;
 }</style>
 <style>
 
+.navbar-custom {
+position: absolute;
+top: 20px; 
+right: 20px; 
+z-index: 10; 
+color: white; 
+padding: 10px 20px; 
+border-radius: 8px; 
+}
+
+.navbar-custom .navbar-nav .nav-link {
+color: white; 
+font-weight: bold; 
+}
+
+.navbar-custom .navbar-nav .nav-link:hover {
+color: #f0f0f0; 
+}
+
+.navbar-custom .navbar-nav {
+flex-direction: row;
+}
+.navbar-custom .nav-item {
+margin-left: 10px;
+}
+
 body {
 font-family: 'Open Sans', sans-serif;
 background-color: #f8f9fa;
 margin: 0;
 padding: 0;
+}
+
+img {
+pointer-events: none; 
 }
 .container {
 max-width: 1200px;
@@ -10592,7 +10622,60 @@ font-size: 14px;
 color: #6c757d;
 margin-top: auto;
 }
+
+footer { background-color: #f8f9fa; padding: 10px 0; text-align: center; font-size: 14px; color: #6c757d; margin-top: auto; }
+
+.scroll-to-top {
+position: fixed;
+bottom: 30px;
+right: 30px;
+background-color: #4e73df;
+color: white;
+border: none;
+border-radius: 50%;
+width: 50px;
+height: 50px;
+display: none;
+align-items: center;
+justify-content: center;
+cursor: pointer;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+transition: all 0.3s ease;
+}
+.scroll-to-top:hover {
+background-color: #3e5bb0;
+transform: scale(1.1);
+}
+.scroll-to-top i {
+font-size: 24px;
+}
 </style>
+<script>
+// Sayfa kaydırıldıkça butonun görünmesini sağlayan JavaScript kodu
+window.onscroll = function() {
+if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+document.getElementById("scrollToTopBtn").style.display = "block";
+} else {
+document.getElementById("scrollToTopBtn").style.display = "none";
+}
+};
+
+// Sayfayı en üste kaydırma fonksiyonu
+function scrollToTop() {
+document.body.scrollTop = 0;
+document.documentElement.scrollTop = 0;
+}
+</script>
+<script>
+document.addEventListener('copy', function(e) {
+e.preventDefault();  // Kopyalama işlemini engeller
+});
+</script>
+<script>
+document.addEventListener('contextmenu', function(e) {
+e.preventDefault();  // Sağ tık menüsünü engeller
+});
+</script>
 </head>
 <body>
 <!-- Page Header-->
@@ -10613,6 +10696,27 @@ Bir veri analitiği başvurusu
 </div>
 </div>
 </div>
+<!-- Navbar Başlık Resminin Sağ Alt Köşesine Ekleme -->
+<nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+<div class="container px-4 px-lg-5">
+<a class="navbar-brand" href="index.html">Spor Analitiği</a>
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+Menu <i class="fas fa-bars"></i> </button>
+<div id="navbarResponsive" class="collapse navbar-collapse">
+<ul class="navbar-nav ms-auto py-4 py-lg-0">
+<li class="nav-item">
+<a class="nav-link px-lg-3 py-3 py-lg-4" href="index.html">Ana Sayfa</a>
+</li>
+<li class="nav-item">
+<a class="nav-link px-lg-3 py-3 py-lg-4" href="post.html">Blog</a>
+</li>
+<li class="nav-item">
+<a class="nav-link px-lg-3 py-3 py-lg-4" href="about.html">Hakkımda</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
 </header>
 </body>
 </html>
@@ -10712,6 +10816,10 @@ Copyright © Ekrem Bayar
 </div>
 </div>
 </footer>
+<!-- En Üste Dön Butonu -->
+<button id="scrollToTopBtn" class="scroll-to-top" onclick="scrollToTop()">
+<i class="fas fa-arrow-up"></i>
+</button>
 <!-- Bootstrap core JS-->
 <script>/*!
   * Bootstrap v5.2.3 (https://getbootstrap.com/)
