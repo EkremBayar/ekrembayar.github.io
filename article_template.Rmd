@@ -31,18 +31,15 @@ color: white; /* Yazıları beyaz yapmak için */
 padding: 10px 20px; /* Navbar'a biraz iç boşluk ekleyelim */
 border-radius: 8px; /* Köşeleri yuvarlayalım */
 }
-
 /* Navbar linklerinin beyaz renkte olması */
 .navbar-custom .navbar-nav .nav-link {
 color: white; /* Link rengini beyaz yap */
 font-weight: bold; /* Linklerin biraz daha kalın olmasını sağlayalım */
 }
-
 /* Navbar linklerinin üzerine gelindiğinde renk değişimi */
 .navbar-custom .navbar-nav .nav-link:hover {
 color: #f0f0f0; /* Hover rengi beyaza yakın bir renk olsun */
 }
-
 /* Navbar stilini düzenleme */
 .navbar-custom .navbar-nav {
 flex-direction: row;
@@ -50,7 +47,6 @@ flex-direction: row;
 .navbar-custom .nav-item {
 margin-left: 10px;
 }
-
 /* Genel sayfa stil ayarları */
 body {
 font-family: 'Open Sans', sans-serif;
@@ -58,19 +54,15 @@ background-color: #f8f9fa;
 margin: 0;
 padding: 0;
 }
-
 /* Görsellerin sağ tıklama ile kopyalanmasını engelle */
 img {
 pointer-events: none;  /* Görseli tıklanamaz hale getirir */
 }
-
 .container {
 max-width: 1200px;
 margin: 0 auto;
 padding: 20px;
 }
-
-
 /* İçerik Kutusu */
 .content-box {
 background-color: #ffffff;
@@ -79,7 +71,6 @@ border-radius: 8px;
 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 margin-top: 50px;
 }
-
 /* Sosyal medya ikonları */
 .social-icons {
 display: flex;
@@ -89,23 +80,19 @@ margin-top: 30px;
 list-style: none; /* Liste elemanları arasında alt çizgiyi engeller */
 padding: 0;
 }
-
 .social-icons a {
 font-size: 30px;
 color: #4e73df;
 transition: all 0.3s ease;
 text-decoration: none; /* Alt çizgiyi kaldırır */
 }
-
 .social-icons a:hover {
 color: #1e3d58;
 transform: scale(1.2);
 }
-
 .social-icons svg, .social-icons i {
 transition: all 0.3s ease;
 }
-
 /* Mentörlük kısmı */
 .mentorship-section {
 background-color: #ffffff;
@@ -115,19 +102,16 @@ box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 margin-top: 50px;
 text-align: center;
 }
-
 .mentorship-section h3 {
 font-size: 2rem;
 color: #333;
 margin-bottom: 20px;
 }
-
 .mentorship-section p {
 font-size: 1.1rem;
 color: #666;
 margin-bottom: 20px;
 }
-
 .mentorship-section .custom-button {
 background-color: #4e73df;
 color: #fff;
@@ -139,12 +123,10 @@ cursor: pointer;
 text-decoration: none;
 transition: all 0.3s ease;
 }
-
 .mentorship-section .custom-button:hover {
 background-color: #3e5bb0;
 transform: translateY(-3px);
 }
-
 /* Footer kısmı */
 footer {
 background-color: #f8f9fa;
@@ -154,10 +136,8 @@ font-size: 14px;
 color: #6c757d;
 margin-top: auto;
 }
-
 /* Footer kısmı */
 footer { background-color: #f8f9fa; padding: 10px 0; text-align: center; font-size: 14px; color: #6c757d; margin-top: auto; }
-
 /* En Üste Dön Butonu */
 .scroll-to-top {
 position: fixed;
@@ -183,7 +163,6 @@ transform: scale(1.1);
 .scroll-to-top i {
 font-size: 24px;
 }
-
 </style>
 <script>
 // Sayfa kaydırıldıkça butonun görünmesini sağlayan JavaScript kodu
@@ -241,13 +220,25 @@ Menu
 </button>
 <div class="collapse navbar-collapse" id="navbarResponsive">
 <ul class="navbar-nav ms-auto py-4 py-lg-0">
-<li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="index.html">Ana Sayfa</a></li>
-<li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="post.html">Blog</a></li>
-<li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="about.html">Hakkımda</a></li>
-
+<li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="../index.html">Ana Sayfa</a></li>
+<li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="../post.html">Blog</a></li>
+<li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="../archive.html">Arşiv</a></li>
+<li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="../about.html">Hakkımda</a></li>
 </ul>
 </div>
 </div>
+<script>
+// Menüye tıklanarak açılmasını engellemek için.
+document.addEventListener("DOMContentLoaded", function() {
+var navToggle = document.querySelector(".navbar-toggler");
+var navCollapse = document.querySelector("#navbarResponsive");
+
+// Menu toggle işlemi
+navToggle.addEventListener("click", function() {
+navCollapse.classList.toggle("collapse"); // Menü açma/kapama işlevi
+});
+});
+</script>
 </nav>
 </header>
 </body>
@@ -303,6 +294,113 @@ mtcars
 </div>
 
 </body>
+
+<!-- Sosyal Medya Paylaş -->
+<head>
+<!-- Font Awesome ikonu için link -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+<style>
+/* Genel sosyal medya paylaşım kutusu */
+.social-share {
+text-align: center;
+margin-top: 30px;
+}
+
+.social-share p {
+font-size: 1.5rem;
+font-weight: 600;
+color: #333;
+margin-bottom: 20px;
+}
+
+/* Butonlar için ortak stil */
+.social-buttons {
+display: flex;
+justify-content: center;
+gap: 15px; /* Butonlar arasına boşluk */
+}
+
+.social-buttons a {
+display: flex;
+align-items: center;
+justify-content: center;
+text-decoration: none;
+padding: 12px 20px;
+border-radius: 30px;
+color: #fff;
+font-size: 1.1rem;
+transition: all 0.3s ease;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.social-buttons a:hover {
+transform: scale(1.1);
+}
+
+/* X (Twitter) Butonu */
+.x {
+background-color: #1da1f2; /* X (Twitter) için mavi renk */
+}
+
+/* LinkedIn Butonu */
+.linkedin {
+background-color: #0077b5;
+}
+
+/* WhatsApp Butonu */
+.whatsapp {
+background-color: #25d366;
+}
+
+/* İkonların butonla uyumlu olması için */
+.social-buttons a i, .social-buttons a svg {
+margin-right: 10px;
+font-size: 1.5rem;
+}
+</style>
+</head>
+
+<body>
+<div class="social-share">
+<p>Bu makaleyi paylaşın:</p>
+
+<!-- Butonlar yanyana olacak -->
+<div class="social-buttons">
+<!-- X Share Button -->
+<a id="x-share" class="x" href="#" target="_blank">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="40px" height="15px" fill="currentColor">
+<path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"></path>
+</svg> X'te Paylaş
+</a>
+
+<!-- LinkedIn Share Button -->
+<a id="linkedin-share" class="linkedin" href="#" target="_blank">
+<i class="fab fa-linkedin"></i> LinkedIn'de Paylaş
+</a>
+
+<!-- WhatsApp Share Button -->
+<a id="whatsapp-share" class="whatsapp" href="#" target="_blank">
+<i class="fab fa-whatsapp"></i> WhatsApp'ta Paylaş
+</a>
+</div>
+</div>
+
+<script>
+// Sayfa URL'sini dinamik olarak alıyoruz
+var currentUrl = window.location.href;
+
+// Sosyal medya paylaşımlarını dinamik URL ile ayarlıyoruz
+document.getElementById("x-share").href = "https://twitter.com/intent/tweet?url=" + encodeURIComponent(currentUrl) + "&text=Okumak%20isterim:%20Süper%20makale!";
+document.getElementById("linkedin-share").href = "https://www.linkedin.com/shareArticle?mini=true&url=" + encodeURIComponent(currentUrl);
+document.getElementById("whatsapp-share").href = "https://api.whatsapp.com/send?text=" + encodeURIComponent("Okumak%20isterim:%20Süper%20makale!%20") + encodeURIComponent(currentUrl);
+</script>
+</body>
+
+
+
+
+
+
 
 <!-- Footer-->
 <html>
