@@ -174,13 +174,14 @@
         let currentPage = 1;
         let articlesData = [];
         let filteredArticles = [];
-
+        
         // makaleler.json dosyasını GitHub üzerinden yükle
         fetch('https://raw.githubusercontent.com/EkremBayar/ekrembayar.github.io/main/makaleler.json')
             .then(response => response.json())
             .then(data => {
-                articlesData = data;
-                filteredArticles = data; // Başlangıçta tüm makalelerle başla
+                // Makaleleri tarihe göre sıralıyoruz (en son tarihler önce gelecek)
+                articlesData = data.sort((a, b) => new Date(b.date) - new Date(a.date));
+                filteredArticles = articlesData; // Başlangıçta tüm makalelerle başla
                 displayArticles();
                 setupPagination();
             })
@@ -188,17 +189,17 @@
                 console.error('Makale verileri yüklenemedi:', error);
                 document.getElementById('no-articles').innerHTML = "Henüz bir makale yayınlanmamış!";
             });
-
+        
         // Makaleleri sayfada göster
         function displayArticles() {
             const blogPostsContainer = document.getElementById('blog-posts');
             const noArticlesContainer = document.getElementById('no-articles');
-
+        
             // Sayfa başına kaç makale gösterileceğini hesapla
             const start = (currentPage - 1) * articlesPerPage;
             const end = start + articlesPerPage;
             const currentArticles = filteredArticles.slice(start, end);
-
+        
             // Eğer makale yoksa "Henüz bir makale bulunamadı!" mesajı göster
             if (currentArticles.length === 0) {
                 blogPostsContainer.classList.add('hidden');
@@ -207,11 +208,11 @@
                 noArticlesContainer.innerHTML = "";
                 blogPostsContainer.classList.remove('hidden');
                 blogPostsContainer.innerHTML = '';
-
+        
                 // Makale varsa, her birini göster
                 const postContainer = document.createElement('div');
                 postContainer.classList.add('post-container');
-
+        
                 currentArticles.forEach(post => {
                     const postElement = document.createElement('div');
                     postElement.classList.add('post');
@@ -227,12 +228,12 @@
                 blogPostsContainer.appendChild(postContainer);
             }
         }
-
+        
         // Sayfa numaralandırmayı ayarla
         function setupPagination() {
             const paginationContainer = document.getElementById('pagination');
             const totalPages = Math.ceil(filteredArticles.length / articlesPerPage);
-
+        
             paginationContainer.innerHTML = '';
             if (totalPages > 1) {
                 // Önceki sayfa linki
@@ -243,7 +244,7 @@
                     prevPage.onclick = () => changePage(currentPage - 1);
                     paginationContainer.appendChild(prevPage);
                 }
-
+        
                 // Sayfa numaraları
                 for (let i = 1; i <= totalPages; i++) {
                     const pageLink = document.createElement('a');
@@ -255,7 +256,7 @@
                     }
                     paginationContainer.appendChild(pageLink);
                 }
-
+        
                 // Sonraki sayfa linki
                 if (currentPage < totalPages) {
                     const nextPage = document.createElement('a');
@@ -266,14 +267,14 @@
                 }
             }
         }
-
+        
         // Sayfa değiştirme fonksiyonu
         function changePage(page) {
             currentPage = page;
             displayArticles();
             setupPagination();
         }
-
+        
         // Arama fonksiyonu
         function searchArticles() {
             const searchQuery = document.getElementById('search-input').value.toLowerCase();
@@ -284,19 +285,19 @@
                     post.title.toLowerCase().includes(searchQuery)
                 );
             }
-
+        
             // Eğer filtrelenmiş makale yoksa, "Henüz bir makale bulunamadı" mesajını göster
             if (filteredArticles.length === 0) {
                 document.getElementById('no-articles').innerHTML = "Henüz bir makale bulunamadı.";
             } else {
                 document.getElementById('no-articles').innerHTML = ""; // Makale varsa, mesajı temizle
             }
-
+        
             currentPage = 1;  // Arama yapıldığında sayfa 1'e sıfırlanacak
             displayArticles();
             setupPagination();
         }
-
+        
         // Makale sayısı değiştirme fonksiyonu
         function changeArticlesPerPage() {
             articlesPerPage = parseInt(document.getElementById('articles-per-page').value);
