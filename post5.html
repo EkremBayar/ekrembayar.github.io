@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Sayfası</title>
+    <style>
+        /* CSS kodları aynı kalacak */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+
+        .container {
+            width: 90%;
+            margin: 20px auto;
+        }
+
+        .blog-posts {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .post {
+            width: 250px;
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .post img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .post:hover {
+            transform: translateY(-5px);
+        }
+
+        .post-title {
+            padding: 10px;
+            font-size: 18px;
+            text-align: center;
+            background-color: #f1f1f1;
+            margin: 0;
+            font-weight: bold;
+        }
+
+        .post a {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Blog Sayfası</h1>
+    </header>
+
+    <div class="container">
+        <div class="blog-posts" id="blog-posts">
+            <!-- Makale listesi buraya eklenecek -->
+        </div>
+    </div>
+
+    <script>
+        // JSON verilerini yükleme
+        fetch('makaleler.json')
+            .then(response => response.json())
+            .then(data => {
+                const blogPostsContainer = document.getElementById('blog-posts');
+
+                // Her bir makale için bir "post" oluşturma
+                data.forEach(post => {
+                    const postElement = document.createElement('div');
+                    postElement.classList.add('post');
+
+                    postElement.innerHTML = `
+                        <a href="${post.url}">
+                            <img src="${post.image}" alt="${post.title}">
+                            <div class="post-title">${post.title}</div>
+                        </a>
+                    `;
+
+                    blogPostsContainer.appendChild(postElement);
+                });
+            })
+            .catch(error => {
+                console.error('Makale verileri yüklenemedi:', error);
+            });
+    </script>
+</body>
+</html>
