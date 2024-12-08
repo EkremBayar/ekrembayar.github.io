@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="Keyifli okumalar dilerim" />
+        <meta name="author" content="Ekrem Bayar" />
+        <meta property="og:title" content="Spor Analitiği - Ekrem Bayar | Blog" />
+        <meta property="og:description" content="Keyifli okumalar dilerim" />
+        <meta property="og:image" content="https://raw.githubusercontent.com/EkremBayar/ekrembayar.github.io/main/assets/img/home-bg-normal.jpg" />
+        <meta property="og:url" content="https://ekrembayar.github.io/blog.html" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Spor Analitiği - Ekrem Bayar | Blog" />
+        <meta name="twitter:description" content="Keyifli okumalar dilerim" />
+        <meta name="twitter:image" content="https://raw.githubusercontent.com/EkremBayar/ekrembayar.github.io/main/assets/img/home-bg-normal.jpg" />
+        <meta name="twitter:url" content="https://ekrembayar.github.io/blog.html" />
+        <title>Spor Analitiği - Ekrem Bayar</title>
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+        <style>
+        /* Genel Sayfa Düzeni */
+        html, body {
+            height: 100%; /* Sayfa yüksekliğini %100 yap */
+            margin: 0;
+            padding: 0;
+        }
+
+        .no-articles {
+            text-align: center;
+            font-size: 18px;
+            color: #888;
+            margin-top: 50px;
+        }
+
+        .post-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Otomatik olarak 200px genişliğinde ve eşit aralıklarla sütunlar */
+            gap: 30px;
+            justify-items: center; /* Ortalamak için */
+            margin-top: 30px;
+        }
+
+        .post {
+            width: 18%; /* Varsayılan 5 makale için %18 genişlik */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .post-published_date {
+            font-size: 0.9rem;  /* Yazı boyutunu küçültüyoruz */
+            color: #777;        /* Yazının rengini biraz daha açık gri yapıyoruz (isteğe bağlı) */
+            margin-top: 5px;    /* Tarih ile başlık arasına biraz boşluk ekliyoruz */
+        }
+
+        
+        .post img {
+            width: 150px; /* Görselin genişliği, kapsayıcı genişliğe göre ayarlanacak */
+            height: 150px; /* Yükseklik sabit olacak */
+            object-fit: cover; /* Görselin oranını koruyarak içine sığacak şekilde kesilecek */
+            border-radius: 5px;
+        }
+        
+        .post-thumbnail {
+            width: 100px; /* Thumbnail için sabit genişlik */
+            height: 100px; /* Thumbnail için sabit yükseklik */
+            object-fit: cover; /* Thumbnail görseli kesilmeden sığacak şekilde yerleştirilecek */
+            border-radius: 5px;
+            margin-bottom: 10px; /* Başlık ile thumbnail arasındaki boşluk */
+        }
+
+        .post-title {
+            font-size: 1rem;
+            font-weight: bold;
+            margin-top: 10px;
+            color: #333;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .pagination a {
+            padding: 10px 20px;
+            margin: 0 5px;
+            background-color: #f0f0f0;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .pagination a:hover {
+            background-color: #ddd;
+        }
+
+        #search-input {
+            margin-bottom: 20px;
+            width: 75%; /* Arama kutusunun genişliğini ayarlıyoruz */
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Makale sayısı dropdown stil */
+        #articles-per-page {
+            margin-bottom: 20px;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        /* Arama ve makale sayısı dropdown'ı için container düzeni */
+        .search-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        
+
+    </style>
+</head>
+<body>
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+        <div class="container px-4 px-lg-5">
+            <a class="navbar-brand" href="home.html">Spor Analitiği</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto py-4 py-lg-0">
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="home.html">Ana Sayfa</a></li>
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="blog.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="archive.html">Arşiv</a></li>
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="about.html">Ben Kimim?</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header-->
+    <header class="masthead" style="background-image: url('assets/img/home-bg-normal.jpg')">
+        <div class="container position-relative px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <div class="site-heading">
+                        <h1>Blog</h1>
+                        <span class="subheading">Keyifli okumalar dilerim</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content-->
+    <div class="container" style="min-height: 80vh;"> <!-- Sayfa içeriği için minimum yüksekliği belirledik -->
+        <!-- Search ve makale sayısı dropdown'ı için container -->
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Makale arayın..." oninput="searchArticles()">
+            <!-- Makale sayısını seçme dropdown'ı -->
+            <select id="articles-per-page" onchange="changeArticlesPerPage()">
+                <option value="5">5 Makale</option>
+                <option value="10">10 Makale</option>
+                <option value="25">25 Makale</option>
+                <option value="100">100 Makale</option>
+            </select>
+        </div>
+
+        <div class="blog-posts" id="blog-posts">
+            <!-- Makaleler burada gösterilecek -->
+        </div>
+        <div class="no-articles" id="no-articles">
+            <!-- Makale yoksa bu mesaj gösterilecek -->
+        </div>
+        <div class="pagination" id="pagination">
+            <!-- Sayfalama burada olacak -->
+        </div>
+    </div>
+
+    <script>
+        let articlesPerPage = 5; // Sayfada gösterilecek makale sayısı
+        let currentPage = 1;
+        let articlesData = [];
+        let filteredArticles = [];
+        
+        // makaleler.json dosyasını GitHub üzerinden yükle
+        fetch('https://raw.githubusercontent.com/EkremBayar/ekrembayar.github.io/main/makaleler.json')
+        .then(response => response.json())
+        .then(data => {
+            // Makaleleri tarihe göre sıralıyoruz (en son tarihler önce gelecek)
+            articlesData = data.sort((a, b) => {
+                // Tarih formatının doğru olduğundan emin olun
+                const dateA = new Date(a.published_date); 
+                const dateB = new Date(b.published_date);
+                return dateB - dateA;  // Zaman damgalarına göre azalan sıralama
+            });
+            filteredArticles = articlesData; // Başlangıçta tüm makalelerle başla
+            displayArticles();
+            setupPagination();
+        })
+        .catch(error => {
+            console.error('Makale verileri yüklenemedi:', error);
+            document.getElementById('no-articles').innerHTML = "Henüz bir makale yayınlanmamış!";
+        });
+        
+        // Makaleleri sayfada göster
+        function displayArticles() {
+            const blogPostsContainer = document.getElementById('blog-posts');
+            const noArticlesContainer = document.getElementById('no-articles');
+        
+            // Sayfa başına kaç makale gösterileceğini hesapla
+            const start = (currentPage - 1) * articlesPerPage;
+            const end = start + articlesPerPage;
+            const currentArticles = filteredArticles.slice(start, end);
+        
+            // Eğer makale yoksa "Henüz bir makale bulunamadı!" mesajı göster
+            if (currentArticles.length === 0) {
+                blogPostsContainer.classList.add('hidden');
+                noArticlesContainer.innerHTML = "Henüz bir makale bulunamadı!";
+            } else {
+                noArticlesContainer.innerHTML = "";
+                blogPostsContainer.classList.remove('hidden');
+                blogPostsContainer.innerHTML = '';
+        
+                // Makale varsa, her birini göster
+                const postContainer = document.createElement('div');
+                postContainer.classList.add('post-container');
+        
+                currentArticles.forEach(post => {
+                    // Undefined değerlerini kontrol et ve boş bırak
+                    const postTitle = post.title || 'Başlık bulunamadı';  // Başlık undefined ise varsayılan metin
+                    const postImage = post.image || 'assets/default-image.jpg';  // Görsel undefined ise varsayılan görsel
+                    const postThumbnail = post.thumbnail || 'assets/default-thumbnail.jpg';  // Thumbnail görseli
+                    const postLink = post.link || '#';  // Link undefined ise varsayılan link
+        
+                    const postElement = document.createElement('div');
+                    postElement.classList.add('post');
+                    postElement.innerHTML = `
+                        <a href="${postLink}">
+                            <img class="post-thumbnail" src="${postThumbnail}" alt="${postTitle}"> <!-- Thumbnail Görseli -->
+                            
+                            <div class="post-title">${postTitle}</div>
+                            <div class="post-published_date">${post.published_date}</div> <!-- Yayınlanan tarihi ekledik -->
+                        </a>
+                    `;
+                    postContainer.appendChild(postElement);
+                });
+                blogPostsContainer.appendChild(postContainer);
+            }
+        }
+        
+        // Sayfa numaralandırmayı ayarla
+        function setupPagination() {
+            const paginationContainer = document.getElementById('pagination');
+            const totalPages = Math.ceil(filteredArticles.length / articlesPerPage);
+        
+            paginationContainer.innerHTML = '';
+            if (totalPages > 1) {
+                // Önceki sayfa linki
+                if (currentPage > 1) {
+                    const prevPage = document.createElement('a');
+                    prevPage.href = '#';
+                    prevPage.innerText = 'Önceki';
+                    prevPage.onclick = () => changePage(currentPage - 1);
+                    paginationContainer.appendChild(prevPage);
+                }
+        
+                // Sayfa numaraları
+                for (let i = 1; i <= totalPages; i++) {
+                    const pageLink = document.createElement('a');
+                    pageLink.href = '#';
+                    pageLink.innerText = i;
+                    pageLink.onclick = () => changePage(i);
+                    if (i === currentPage) {
+                        pageLink.style.fontWeight = 'bold';
+                    }
+                    paginationContainer.appendChild(pageLink);
+                }
+        
+                // Sonraki sayfa linki
+                if (currentPage < totalPages) {
+                    const nextPage = document.createElement('a');
+                    nextPage.href = '#';
+                    nextPage.innerText = 'Sonraki';
+                    nextPage.onclick = () => changePage(currentPage + 1);
+                    paginationContainer.appendChild(nextPage);
+                }
+            }
+        }
+        
+        // Sayfa değiştirme fonksiyonu
+        function changePage(page) {
+            currentPage = page;
+            displayArticles();
+            setupPagination();
+        }
+        
+        // Arama fonksiyonu
+        function searchArticles() {
+            const searchQuery = document.getElementById('search-input').value.toLowerCase();
+            if (searchQuery === "") {
+                filteredArticles = articlesData; // Arama boşsa tüm makaleleri göster
+            } else {
+                filteredArticles = articlesData.filter(post =>
+                    post.title.toLowerCase().includes(searchQuery)
+                );
+            }
+        
+            // Eğer filtrelenmiş makale yoksa, "Henüz bir makale bulunamadı" mesajını göster
+            if (filteredArticles.length === 0) {
+                document.getElementById('no-articles').innerHTML = "Henüz bir makale bulunamadı.";
+            } else {
+                document.getElementById('no-articles').innerHTML = ""; // Makale varsa, mesajı temizle
+            }
+        
+            currentPage = 1;  // Arama yapıldığında sayfa 1'e sıfırlanacak
+            displayArticles();
+            setupPagination();
+        }
+        
+        // Makale sayısı değiştirme fonksiyonu
+        function changeArticlesPerPage() {
+            articlesPerPage = parseInt(document.getElementById('articles-per-page').value);
+            currentPage = 1; // Sayfa 1'e sıfırlanacak
+            displayArticles();
+            setupPagination();
+        }
+        
+    </script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Footer-->
+    <footer>
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <div class="small text-center text-muted fst-italic">Copyright &copy; Ekrem Bayar</div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+
+
