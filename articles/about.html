@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Merhaba, ben Ekrem!" />
+    <meta name="author" content="Ekrem Bayar" />
+    <meta property="og:title" content="Spor Analitiği - Ekrem Bayar | Ben Kimim?" />
+    <meta property="og:description" content="Merhaba, ben Ekrem!" />
+    <meta property="og:image" content="https://raw.githubusercontent.com/EkremBayar/ekrembayar.github.io/main/assets/img/home-bg-normal.jpg" />
+    <meta property="og:url" content="https://ekrembayar.github.io/about.html" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Spor Analitiği - Ekrem Bayar | Ben Kimim?" />
+    <meta name="twitter:description" content="Merhaba, ben Ekrem!" />
+    <meta name="twitter:image" content="https://raw.githubusercontent.com/EkremBayar/ekrembayar.github.io/main/assets/img/home-bg-normal.jpg" />
+    <meta name="twitter:url" content="https://ekrembayar.github.io/about.html" />
+    <title>Spor Analitiği - Ekrem Bayar</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
+    <style>
+        .container {
+            max-width: 1200px;
+        }
+
+        .about-section {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .about-photo {
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin-bottom: 10px;
+        }
+
+        .about-text {
+            flex: 1;
+            font-size: 1.2rem;
+        }
+
+        .about-text a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .about-text a:hover {
+            text-decoration: underline;
+        }
+
+        .mentorship-section,
+        .social-media-section {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        .mentorship-section h3,
+        .social-media-section h3 {
+            color: #007bff;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+     
+        .mentorship-section p,
+        .social-media-section p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            text-align: justify; /* Açıklama sola yaslandı */
+        }
+
+        .mentorship-section a,
+        .social-media-section a {
+            color: white; /* Butonlar beyaz */
+            font-size: 1.2rem;
+            text-decoration: none;
+            font-weight: bold;
+            display: block;
+            text-align: center;
+        }
+
+        .mentorship-section a:hover,
+        .social-media-section a:hover {
+            text-decoration: underline;
+        }
+
+        .custom-button {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            position: relative;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            margin: 0 auto; /* Butonu ortala */
+        }
+
+        .custom-button:hover {
+            background-color: #0056b3;
+            transform: translateY(-5px);
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            font-size: 2rem;
+            color: #333; /* İkon renkleri */
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #007bff; /* Hover durumunda renk değişimi */
+            background-color: #f1f1f1;
+            transform: translateY(-5px); /* Hoverda hafif yukarı kaydırma */
+        }
+
+        .social-icons a {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            border-radius: 50%;
+            text-align: center;
+            background-color: #f1f1f1;
+        }
+
+        /* Yanyana görünsün ve eşit genişlikte olsun */
+        .row-custom {
+            display: flex;
+            gap: 20px;
+            justify-content: space-between;
+            align-items: stretch;
+        }
+
+        .col-custom {
+            flex: 1;
+            min-width: 45%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* Mobil uyumlu tasarım */
+        @media (max-width: 768px) {
+            .row-custom {
+                flex-direction: column;
+            }
+
+            .col-custom {
+                min-width: 100%;
+            }
+        }
+
+        /* Özgeçmiş kısmının stilini şık bir şekilde tasarlıyoruz */
+        .section-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #007bff;
+            text-align: center;
+            margin-bottom: 15px;
+            line-height: 0;
+        }
+        
+        .section-title-cv {
+          color: #007bff;
+          font-size: 1.5rem;
+          margin-bottom: 30px;
+          text-align: center;
+        }
+
+        .role {
+            font-size: 1.2rem;
+            font-weight: 500;
+            text-align: center;
+            margin-bottom: 30px;
+            line-height: 0.1;
+        }
+
+        .resume-content {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        .resume-content p {
+            margin-bottom: 15px;
+        }
+
+        /* Mobil uyumlu tasarım için */
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .role {
+                font-size: 1.1rem;
+            }
+
+            .resume-content {
+                font-size: 1rem;
+            }
+        }
+        
+        
+        /* Özgeçmiş kısmı arasındaki boşluğu azaltalım */
+        .resume-section {
+            margin-top: 0px; /* Önceden 30px vardı, şimdi 10px'e indirildi */
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Sosyal medya ve mentörlük bölümleri arasındaki boşluğu da kontrol edelim */
+        .row-custom {
+            display: flex;
+            gap: 10px;
+            justify-content: space-between;
+            align-items: stretch;
+            margin-bottom: 0px; /* Bu satır eklendi */
+        }
+        
+        /* Mobil uyumlu tasarımda da boşluğu azaltalım */
+        @media (max-width: 768px) {
+            .resume-section {
+                margin-top: 40px; /* Mobilde de boşluğu azaltıyoruz */
+            }
+            .row-custom {
+                margin-bottom: 10px; /* Yine mobilde de boşluğu azaltıyoruz */
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+        <div class="container px-4 px-lg-5">
+            <a class="navbar-brand" href="index.html">Spor Analitiği</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto py-4 py-lg-0">
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="index.html">Ana Sayfa</a></li>
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="post.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="archive.html">Arşiv</a></li>
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="about.html">Ben Kimim?</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header-->
+    <header class="masthead" style="background-image: url('assets/img/home-bg-normal.jpg')">
+        <div class="container position-relative px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-lg-8 col-xl-7">
+                    <div class="page-heading">
+                        <h1>Ben Kimim?</h1>
+                        <span class="subheading">Merhaba, ben Ekrem!</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content-->
+    <main class="mb-4">
+        <div class="container-fluid px-5 px-lg-6">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-12 col-lg-10 col-xl-9">
+                    <!-- Yanyana yerleşen kutucuklar -->
+                    <div class="row-custom">
+                        <!-- Sosyal Medya Takip ve İletişim Bölümü -->
+                        <div class="col-custom">
+                            <div class="social-media-section">
+                                <h3>Sosyal Medya Hesaplarım ve İletişim</h3>
+                                <p>Tüm sosyal medya hesaplarımdan beni takip edebilir ve iletişime geçebilirsiniz!</p>
+                                <div class="social-icons">
+                                    <a href="https://www.linkedin.com/in/ekrem-bayar/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                                    <a href="https://x.com/EkremBayar_" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-twitter-x" viewBox="0 0 16 16">
+  <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/>
+</svg>
+                                    <a href="https://www.instagram.com/ekrembayar_" target="_blank"><i class="fab fa-instagram"></i></a>
+                                    <a href="https://github.com/EkremBayar" target="_blank"><i class="fab fa-github"></i></a>
+                                    <a href="https://www.kaggle.com/ekrembayar" target="_blank"><i class="fab fa-kaggle"></i></a>
+                                    <a href="https://www.youtube.com/channel/UCB_2RXBvSw7NF6P9dQlsH1Q" target="_blank"><i class="fab fa-youtube"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Spor Analitiği Mentörlük ve Kariyer Önerileri -->
+                        <div class="col-custom">
+                            <div class="mentorship-section">
+                                <h3>Spor Analitiği Mentörlük ve Kariyer Önerileri</h3>
+                                <p>Spor analitiği kariyerinize başlamak ya da bu alanda daha da ilerlemek mi istiyorsunuz? Sizlere özel olarak, spor analitiği kariyer önerileri hakkında 1 saatlik online görüşme imkanı sunuyorum!</p>
+                                <a href="https://superpeer.com/ekrembayar/-/spor-analitigi-kariyer-onerileri?s=d" target="_blank" class="custom-button">Randevu Al</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Özgeçmiş Bölümü -->
+                    <div class="resume-section">
+                        <h3 class="section-title-cv">Özgeçmiş</h3>
+                        <h3 class="section-title"><a href="https://www.linkedin.com/in/ekrem-bayar/" target="_blank">Ekrem Bayar</a></h3>
+                        <p class="role">📊 Data Scientist | Scouting ⚽️</p>
+                        <div class="resume-content">
+                            <p>Yıldız Teknik Üniversitesi İstatistik Bölümü’nden 2019 yılında lisans, 2022 yılında yüksek lisans derecesiyle mezun oldum. Şu anda doktora çalışmalarımı sürdürmekteyim.</p>
+                            <p>Sahibinden.com, KPMG, Doğuş Teknoloji ve SabancıDx gibi öncü firmalarda Data Scientist olarak görev aldım. Bu süreçte makine öğrenmesi, istatistiksel analizler, uygulama geliştirme, optimizasyon ve veri analitiği gibi alanlarda birçok projeyi başarıyla hayata geçirdim.</p>
+                            <p>Eğitim ve iş yaşamımın dışında, spor analitiği üzerine hobi olarak başladığım çalışmalar, zamanla uzmanlık alanım haline geldi. Mayıs 2022’den bu yana <strong>Fenerbahçe Futbol A Takımı’nın Scouting departmanında</strong> Data Scientist olarak görev alıyorum. Bu pozisyonda oyuncu keşfi ve transfer süreçlerine yönelik veri odaklı analiz ve projelerle hem Fenerbahçe’ye hem de Türk futboluna katkı sağlıyorum.</p>
+                            <p>Ayrıca, spor analitiği ve scouting alanında bilgi paylaşımı ve eğitimi misyon edinerek bilgi birikimimi daha geniş bir kitleyle buluşturuyorum.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer-->
+    <footer>
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <div class="small text-center text-muted fst-italic">Copyright &copy; Ekrem Bayar</div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+</body>
+
+</html>
+
+
+
+
