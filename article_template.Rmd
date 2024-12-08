@@ -1,10 +1,10 @@
 ---
 output: html_document
 params:   
-  title: "Veri Sağlayıcı Şirketler"
-  subtitle: "Bir veri analitiği başvurusu"
+  title: "Origin Story: Ekrem Bayar Spor Analitiğine Nasıl Başladı? "
+  subtitle: "Kocaeli'de radyoaktif örümcek vardı da biz mi elimizi ısırtmadık?"
   author: "Ekrem Bayar"
-  header_img: "post-bg.jpg"
+  header_img: "bite.jpg"
 ---
 
 <html>

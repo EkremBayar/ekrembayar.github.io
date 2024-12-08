@@ -1,0 +1,582 @@
+---
+output: html_document
+params:   
+  title: "Origin Story: Ekrem Bayar Spor Analitiğine Nasıl Başladı?"
+  subtitle: "Kocaeli'de radyoaktif örümcek vardı da biz mi elimizi ısırtmadık?"
+  author: "Ekrem Bayar"
+  header_img: "001_origin_story/img1.jpg"
+---
+
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<title>`r params$title`</title>
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+<script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
+<link href="css/styles.css" rel="stylesheet" />
+<style>
+
+/* Navbar'ı Resmin Üzerine Getirme */
+.navbar-custom {
+position: absolute;
+top: 20px;    /* Navbar'ın yukarıdaki konumu */
+right: 20px;  /* Navbar'ın sağdaki konumu */
+z-index: 10;  /* Navbar'ı başlık resminin üzerine getirmek için z-index */
+color: white; /* Yazıları beyaz yapmak için */
+padding: 10px 20px; /* Navbar'a biraz iç boşluk ekleyelim */
+border-radius: 8px; /* Köşeleri yuvarlayalım */
+}
+/* Navbar linklerinin beyaz renkte olması */
+.navbar-custom .navbar-nav .nav-link {
+color: white; /* Link rengini beyaz yap */
+font-weight: bold; /* Linklerin biraz daha kalın olmasını sağlayalım */
+}
+/* Navbar linklerinin üzerine gelindiğinde renk değişimi */
+.navbar-custom .navbar-nav .nav-link:hover {
+color: #f0f0f0; /* Hover rengi beyaza yakın bir renk olsun */
+}
+/* Navbar stilini düzenleme */
+.navbar-custom .navbar-nav {
+flex-direction: row;
+}
+.navbar-custom .nav-item {
+margin-left: 10px;
+}
+/* Genel sayfa stil ayarları */
+body {
+font-family: 'Open Sans', sans-serif;
+background-color: #f8f9fa;
+margin: 0;
+padding: 0;
+}
+/* Görsellerin sağ tıklama ile kopyalanmasını engelle */
+img {
+pointer-events: none;  /* Görseli tıklanamaz hale getirir */
+}
+.container {
+max-width: 1200px;
+margin: 0 auto;
+padding: 20px;
+}
+/* İçerik Kutusu */
+.content-box {
+background-color: #ffffff;
+padding: 40px;
+border-radius: 8px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+margin-top: 50px;
+}
+/* Sosyal medya ikonları */
+.social-icons {
+display: flex;
+justify-content: center;
+gap: 20px;
+margin-top: 30px;
+list-style: none; /* Liste elemanları arasında alt çizgiyi engeller */
+padding: 0;
+}
+.social-icons a {
+font-size: 30px;
+color: #4e73df;
+transition: all 0.3s ease;
+text-decoration: none; /* Alt çizgiyi kaldırır */
+}
+.social-icons a:hover {
+color: #1e3d58;
+transform: scale(1.2);
+}
+.social-icons svg, .social-icons i {
+transition: all 0.3s ease;
+}
+/* Mentörlük kısmı */
+.mentorship-section {
+background-color: #ffffff;
+padding: 40px;
+border-radius: 8px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+margin-top: 50px;
+text-align: center;
+}
+.mentorship-section h3 {
+font-size: 2rem;
+color: #333;
+margin-bottom: 20px;
+}
+.mentorship-section p {
+font-size: 1.1rem;
+color: #666;
+margin-bottom: 20px;
+}
+.mentorship-section .custom-button {
+background-color: #4e73df;
+color: #fff;
+padding: 12px 30px;
+font-size: 1.1rem;
+border: none;
+border-radius: 50px;
+cursor: pointer;
+text-decoration: none;
+transition: all 0.3s ease;
+}
+.mentorship-section .custom-button:hover {
+background-color: #3e5bb0;
+transform: translateY(-3px);
+}
+/* Footer kısmı */
+footer {
+background-color: #f8f9fa;
+padding: 10px 0;
+text-align: center;
+font-size: 14px;
+color: #6c757d;
+margin-top: auto;
+}
+/* Footer kısmı */
+footer { background-color: #f8f9fa; padding: 10px 0; text-align: center; font-size: 14px; color: #6c757d; margin-top: auto; }
+/* En Üste Dön Butonu */
+.scroll-to-top {
+position: fixed;
+bottom: 30px;
+right: 30px;
+background-color: #4e73df;
+color: white;
+border: none;
+border-radius: 50%;
+width: 50px;
+height: 50px;
+display: none;
+align-items: center;
+justify-content: center;
+cursor: pointer;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+transition: all 0.3s ease;
+}
+.scroll-to-top:hover {
+background-color: #3e5bb0;
+transform: scale(1.1);
+}
+.scroll-to-top i {
+font-size: 24px;
+}
+</style>
+<script>
+// Sayfa kaydırıldıkça butonun görünmesini sağlayan JavaScript kodu
+window.onscroll = function() {
+if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+document.getElementById("scrollToTopBtn").style.display = "block";
+} else {
+document.getElementById("scrollToTopBtn").style.display = "none";
+}
+};
+
+// Sayfayı en üste kaydırma fonksiyonu
+function scrollToTop() {
+document.body.scrollTop = 0;
+document.documentElement.scrollTop = 0;
+}
+</script>
+<script>
+document.addEventListener('copy', function(e) {
+e.preventDefault();  // Kopyalama işlemini engeller
+});
+</script>
+<script>
+document.addEventListener('contextmenu', function(e) {
+e.preventDefault();  // Sağ tık menüsünü engeller
+});
+</script>
+</head>
+<body>
+<!-- Page Header-->
+<header class="masthead" style="background-image: url(`r paste0('assets/img/', params$header_img)`)">
+<div class="container position-relative px-4 px-lg-5">
+<div class="row gx-4 gx-lg-5 justify-content-center">
+<div class="col-md-10 col-lg-8 col-xl-7">
+<div class="post-heading">
+<h1>`r params$title`</h1>
+<h2 class="subheading">`r params$subtitle`</h2>
+<span class="meta">
+Yazar:
+<a href="#!">`r params$author`</a>
+, `r Sys.Date()`
+</span>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Navbar Başlık Resminin Sağ Alt Köşesine Ekleme -->
+<nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+<div class="container px-4 px-lg-5">
+<a class="navbar-brand" href="../index.html">Spor Analitiği</a>
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+Menu
+<i class="fas fa-bars"></i>
+</button>
+<div class="collapse navbar-collapse" id="navbarResponsive">
+<ul class="navbar-nav ms-auto py-4 py-lg-0">
+<li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="../index.html">Ana Sayfa</a></li>
+<li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="../post.html">Blog</a></li>
+<li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="../archive.html">Arşiv</a></li>
+<li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="../about.html">Ben Kimim?</a></li>
+</ul>
+</div>
+</div>
+<script>
+// Menüye tıklanarak açılmasını engellemek için.
+document.addEventListener("DOMContentLoaded", function() {
+var navToggle = document.querySelector(".navbar-toggler");
+var navCollapse = document.querySelector("#navbarResponsive");
+
+// Menu toggle işlemi
+navToggle.addEventListener("click", function() {
+navCollapse.classList.toggle("collapse"); // Menü açma/kapama işlevi
+});
+});
+</script>
+</nav>
+</header>
+</body>
+</html>
+
+<!-- İçerik Kutusu -->
+<div class="content-box">
+<style>
+.content-box {
+font-size: 1.5rem; /* Font boyutunu arttır */
+}
+/* Başlıkların boyutunu da arttıralım */
+.content-box h1, .content-box h2, .content-box h3 {
+font-size: 3rem; /* Başlık fontu büyütüldü */
+color: #222;
+}
+/* Paragrafların font boyutunu biraz daha artırabiliriz */
+.content-box p {
+font-size: 1.5rem; /* Paragraf metni font boyutu */
+}
+</style>
+
+
+## Origin Story
+
+*Başlangıç hikayesi (Origin Story), bir karakterin ya da olayın nasıl başladığını, ilk nasıl şekillendiğini anlatan bir hikayeyi ifade eder. Özellikle çizgi roman, film, dizi veya edebiyat eserlerinde, bir karakterin güçlerinin, kişiliğinin ya da kimliğinin nasıl oluştuğunu, geçmişindeki önemli olayları anlatmak için kullanılır. Bu tür hikayelere örnek olarak, süper kahramanların güç kazandığı ya da bir karakterin hayatındaki dönüm noktalarına odaklanan anlatılar verilebilir.*
+
+Her şeyin bir başlangıç hikayesi vardır. 
+
+Blogumun ilk yazısına başlarken, bu yolculuğun bir başlangıç hikayesi olduğunu vurgulamak istedim. Spor analitiğiyle olan ilişkimi anlatmak, bu yolculuğun nasıl başladığını paylaşmak önemli bir adım. Bu yazıda, spor analitiğine nasıl başladığımı, nasıl ilerlediğimi aşama aşama anlatacağım. Ayrıca, sonraki yazılarda bu alana dair teknik detaylara inerek, her birini adım adım paylaşmayı planlıyorum.
+
+Yazıyı daha eğlenceli hale getirmek için, defalarca severek izlediğim 1994 yapımı efsanevi Spider-Man: The Animated Series çizgi filminden de birkaç alıntı yapacağım. 5 sezon, 65 bölümden oluşan bu yapımda, Peter Parker adlı karakterimiz radyoaktif bir örümcek tarafından ısırıldıktan sonra süper güçler kazanır ve bu güçleri doğru bir amaç için kullanmaya başlar.
+
+Spor analitiği dünyasında ise bizlere süper güçler kazandıracak radyoaktif bir eğitim müfredatı ya da sihirli bir yol haritası yok. Ancak, doğru bir motivasyon ve bir adım atma cesaretiyle başlamak, başarıya giden ilk adım olabilir. Sonrası tamamen zaman, çaba ve imkan meselesidir. Unutmayalım ki, spor analitiği bireysel bir araştırma ve çaba işidir.
+
+<center>![](assets/img/001_origin_story/img2.jpg)</center>
+<center>*Bölüm: Spider Wars, Chapter 2: Farewell Spider-Man*</center>
+
+Amacım, kendi araştırmalarım ve deneyimlerimden yola çıkarak, bu alana başlamak ve ilerlemek isteyenlere bir yol haritası sunmak ve farkındalıklarını artırmak.
+
+<hr>
+
+## Başlangıç
+
+Yıldız Teknik Üniversitesi İstatistik bölümü öğrencisiyken, kariyer hedefim veri analitiği üzerineydi. Veri analitiği alanında kariyer yapmayı planlayan biri için öğrenilmesi gereken bazı temel noktalar var. Hem teorik altyapıyı oluşturmak hem de bu bilgileri pratiğe dökebilmek için gerekli yazılımları öğrenmek şart. Ancak sadece teorik bilgi ve yazılım bilgisi yeterli değil; sürekli veri setleriyle çalışmak ve projeler geliştirmek de bir o kadar önemli.
+
+Öğrenme sürecimde, dersler, projeler ve online eğitimlere zaman ayırmanın yanı sıra, bölümdeki hocalarımla sürekli iletişimde olmayı ve onların bilgi birikimlerinden faydalanmayı da ihmal etmedim. Birkaç arkadaşımla birlikte, Erhan Çene hocamızın rehberliğinde küçük bir çalışma grubu kurduk. Bu grup, hem Erhan hocadan yeni şeyler öğrenmemizi sağlıyordu hem de bireysel olarak yaptığımız çalışmaları birbirimize anlatma fırsatı sunuyordu. Erhan hoca, spor analitiği konusunda oldukça ilgili biri ve bu alanda çeşitli çalışmalar yapmakta. Bir dersimizde, FIFA oyununa ait veri seti üzerinde yaptığı keşifçi veri analizlerini bize anlatmıştı. Bu veri seti beni gerçekten çok etkiledi ve üzerinde çalışmalar yapmaya başladım. Zamanla, spor analitiğine olan ilgim arttı. Fakat, bir noktada kendime şu soruyu sordum: "Nereden başlamalıyım?"
+
+<center><img src="assets/img/001_origin_story/img3.jpg" style="width:40%" /></center>
+<center>*Bölüm: Night of the Lizard*</center>
+
+<hr>
+
+## Arayış
+
+<center>![](assets/img/001_origin_story/img4.jpg)</center>
+<center>*Bölüm: Neogenic Nightmare Chapter 7: Enter the Punisher*</center>
+
+Spor analitiği hakkında daha fazla bilgi edinebilmek için kendime sorular sormaya başladım:
+
+- *Spor analitiği nedir?*
+- *Literatürde ne tür çalışmalar var?*
+- *Hangi spor dallarında yaygın olarak kullanılıyor?*
+- *Veri kaynakları neler? Veri kaynaklarına nasıl ulaşabilirim? Veriler nasıl toplanıyor?*
+- *Spor kulüplerinin veri analitiği departmanları ve yazılım bulunuyor mu?*
+- *Dünyada ve Türkiye’de spor analitiği üzerine çalışan şirketler, uzman kişiler ve içerik üreticileri var mı?*
+- *İş olanakları var mı?*
+- *Eğitim programları, kurslar bulunuyor mu?*
+- *Hangi spor dalında ve hangi alanda çalışmak istiyorum?*
+- *Çevremde ilgilendiğim spor dalıyla ilgili etkinlikler var mı?*
+- *Kendi gelişimimi sağlamak için hangi kaynaklardan faydalanabilirim?*
+- *Mentörlük alabileceğim birisi var mı?*
+- *Hangi kulüplerde veya ülkelerde kariyer fırsatı bulunuyor?*
+- *Hangi teknolojileri bilmeliyim ve hangi becerilere sahip olmalıyım?*
+- *İşin zorlukları neler?*
+- *…*
+
+Bu ve benzeri soruları kendime sorarak, her birine tek tek cevap aramaya başladım. Araştırmalarımın sonucunda, spor analitiği dünyasının çok fazla detay içerdiğini ve bu alandaki zorlukların farkına vardım. Çok fazla detay olmasına rağmen sizlere de katkı sağlayacağına inandığım araştırmalarımın cevaplarını mümkün olduğunca üreteceğim içeriklerde basit bir şekilde anlatmaya çalışacağım.
+
+Eğer siz de bu alana adım atmayı planlıyorsanız, kendinize benzer sorular sorarak araştırmalarınıza başlayabilirsiniz. Bu süreç, sadece bilgi edinmek değil, aynı zamanda hangi yönlerden daha fazla gelişmek gerektiğini de keşfetmenizi sağlayacaktır.
+
+<hr>
+
+## Moneyball
+
+Arayış sürecimde, spor analitiği literatüründe sıklıkla Moneyball felsefesine atıfta bulunulduğunu gördüm. Bu hikaye, özellikle spor analitiğine meraklı olan kişileri motive eden güçlü bir araç olarak karşımıza çıkıyor. Moneyball'un, istatistiklerin ve verilerin spor dünyasında nasıl devrim yaratabileceğini gösterdiği bir örnek olduğunu düşünüyorum. 
+
+Moneyball (2011), Michael Lewis'in 2003 tarihli Moneyball: The Art of Winning an Unfair Game adlı kitabına dayanan ve spor analitiği ile istatistiksel modelleme konusunda önemli bir dönüm noktası oluşturan bir filmdir. Film, Oakland Athletics beyzbol takımının 2002 sezonunda, sınırlı bir bütçeyle rekabet etmeye çalışan genel menajeri Billy Beane'in gerçek hikayesini anlatır.
+
+<center><img src="assets/img/001_origin_story/img5.jpg" style="width:40%" /></center>
+<center>*Görsel: Moneyball (2011) – Brad Pitt, Billy Beane rolünde*</center>
+
+Billy Beane (Brad Pitt), geleneksel scouting yöntemlerine ve oyuncu seçimindeki içgüdüsel yaklaşımlara karşı çıkarak, daha sistematik ve veri odaklı bir yaklaşım benimsemeye karar verir. Bu süreçte, Beane, Yale Üniversitesi'nden ekonomist Peter Brand (Jonah Hill) ile işbirliği yapar. Brand, takımın başarısızlıkla mücadele eden düşük bütçeli oyuncularını seçmek ve bunların istatistiksel verilerini analiz ederek takımın performansını iyileştirmek için yeni bir yöntem önerir.
+
+Bu yaklaşımın temelinde, bir oyuncunun geleneksel gözlemlerle değerlendirilen yeteneklerinden ziyade, istatistiksel analizlere dayalı objektif veriler bulunmaktadır. Özellikle oyuncuların on-base percentage (OBP) gibi istatistikler üzerinden daha etkili bir takım kurma amacı güdülmüştür. Film, "geleneğin" ve "alışılagelmiş yöntemlerin" ötesine geçmeyi hedefleyen bu yenilikçi yaklaşımın karşılaştığı dirençleri ve aynı zamanda başarılarını ele alır.
+
+Moneyball, sadece bir beyzbol hikayesi değil, aynı zamanda spor analitiği ve veri odaklı düşünme anlayışının nasıl bir endüstri devrimine yol açabileceğini gösteren bir metafor olarak kabul edilir. Geleneksel sporcunun ve koçun sezgisel kararlarını veri analitiğiyle desteklemek, takımların daha rasyonel ve verimli bir şekilde nasıl yönetilebileceğini ortaya koyar. Günümüzde farklı spor dallarında pek çok kulübün benimsediği bir yaklaşımdır.
+
+Film, spor dünyasında analitik düşüncenin yerleşmesini simgelerken, aynı zamanda iş dünyası, ekonomi ve teknoloji gibi farklı alanlarda da benzer veri tabanlı yaklaşımların benimsenmesine ilham kaynağı olmuştur.
+
+Özetle, Moneyball filmi, spor analitiği literatüründe sıkça referans verilen ve analitik düşüncenin spor dünyasında nasıl devrimsel değişikliklere yol açabileceğini anlatan bir başyapıttır. 
+
+Moneyball felsefesi, tek başına çok geniş bir konu ve derinlemesine ele alınması gereken bir alan. Moneyball filmi, spor analitiği dünyasına olan ilgimi artıran önemli unsurlardan biriydi. Bu yüzden burada kısaca Moneyball felsefesini açıklamaya çalıştım ve eğer bu alana ilgi duyuyorsanız, filmi izlemenizi kesinlikle tavsiye ederim. Belki gelecekteki yazılarımda bu konuyu daha ayrıntılı bir şekilde ele alırım, ancak şimdilik konuyu burada noktalayarak, diğer başlıklara geçmek istiyorum.
+
+<hr>
+
+## Bireysel Çalışmalar
+
+İlk çalışmalarımı FIFA oyununun veri setiyle yaptığımı belirtmiştim.  Bu veri seti üzerinde keşifçi veri analizi, modelleme, istatistiksel analizler, veri görselleştirme ve dashboard geliştirme gibi çalışmalar gerçekleştirdim. 
+
+<center><img src="assets/img/001_origin_story/img6.jpg" style="width:40%" /></center>
+<center>*Görsel: FIFA 19 Dashboard çalışmam*</center>
+
+FIFA dışında önceliğim spor analitiğiyle alakalı hazır veri setleri bulmaktı. Bu noktada ilk baktığım yer ise Kaggle platformu oldu. Kaggle içerisinde spor analitiği üzerine paylaşılan birbirinden farklı hazır veri setleri, kodlar ve yarışmalar bulunduruyor. Platformda zaman geçirdikçe, spor analitiği konusunda yeni bilgiler edinme ve bakış açımı genişletme fırsatı buldum.
+
+Hazır veri setlerinin yanı sıra, spor istatistiklerini paylaşan web sitelerini de araştırdım ve her birini tek tek inceledim. Bu incelemelerde dikkat ettiğim başlıca noktalar şunlardı:
+
+- *Veri içeriği* 
+- *Veri büyüklüğü*
+- *Veri çeşitliliği* 
+- *Veri kalitesi*
+- *Diğer web sitelerden farklı ve eşsiz bilgi*
+- *Proje ya da araştırma yapmak için yeterli veri sunulup sunulmadığı*
+
+Bu değerlendirmeler sonucu, işime yarayabileceğini düşündüğüm bazı web sitelerinden veri toplamak için "web scraping" (web kazıma) konusunu öğrenmeye başladım. Topladığım veri setleriyle, yeni bilgiler keşfetmeye çalıştım.
+
+Ancak bir süre sonra, web sitelerinden topladığım verilerin artık benim için yeterli olmadığı hissine kapıldım. Daha kapsamlı çalışmalar yapabilmek için daha geniş veri setlerine sahip olmam gerektiğini fark ettim.
+
+Bunun üzerine, veri sağlayıcı şirketleri araştırmaya başladım. Spor sektöründe veri toplamak zor ve maliyetli bir işlem. Bu yüzden, veri sağlayıcıları topladıkları geniş veri setlerini kulüplere, federasyonlara, medya kuruluşlarına vb. satıyorlar. Bağımsız bir araştırmacı veya öğrenci olarak, bu veri setlerine ulaşmak pek mümkün değil. Ancak veri sağlayıcı şirketler, topladıkları verinin bir kısmını ücretsiz olarak paylaşıyorlar. Ben de bu ücretsiz veri setleri üzerinden küçük çaplı çalışmalar yaparak kendimi geliştirme fırsatı buldum.
+
+<center>![](assets/img/001_origin_story/img7.jpg)</center>
+<center>*Görsel: Statsbomb Open Data ile çalışmamdan bir kesit*</center>
+
+Yüksek lisans tezimi de Transfermarkt ve Football Reference web sitelerinden topladığım verilerle, futbolcuların piyasa değerlerini tahmin eden bir makine öğrenmesi modeli geliştirerek tamamladım.
+
+Şu ana kadar anlattığım tüm süreç, 2017-2022 arasında eğitim ve iş hayatımın dışında spor analitiğiyle kurduğum ilişkimin bir özeti. 
+
+<hr>
+
+## Fenerbahçe Fırsatı
+
+Araştırma sürecimde, Avrupa ve Amerika’da spor kulüplerinin ve federasyonların bu alana, insan kaynağına, teknolojik altyapıyı güçlendirmelerine, ve akademik çalışmalara ciddi yatırımlar yaptıklarını ve bu alana değer verdiklerini gözlemledim. 
+
+“Geleceğin mesleği” söylemlerini yıllardır duyuyoruz. İlgilendiğiniz ve çalıştığınız alan gerçekten “geleceğin mesleği” olabilir. Ancak, dünyanın başka bir yerinde o gelecek yaşanıyor olabilir.  Spor analitiği, ülkemiz için tam da bu durumda. Araştırma ve öğrenme sürecimde, Türkiye’de spor analitiği diye bir sektör olmadığını çok kısa bir süre içerisinde anladım.  Avrupa ve Amerika’da spor analitiği alanında iş olanaklarına sıklıkla rastlanırken, Türkiye’de bu tür fırsatlar maalesef bulunmuyor.
+
+Ülkemizde federasyonlar, spor kulüpleri, özel sektör şirketleri ve akademinin, spor analitiği alanına henüz çok yoğunlaşmadığını gözlemledim. Spor analitiği üzerine çalışan şirket ve girişim sayısı çok az, spor kulüplerinde veri analitiği ya da yazılım departmanları bulunmuyor, kulüplerde yazılımcı, veri bilimci, veri analisti gibi profesyoneller çalışmıyor. Akademide ise bu alanda çalışan ve içerik üreten bilim insanlarının sayısı oldukça düşük. Spor analitiğiyle ilgili eğitim veren bir kurum da mevcut değil. Bu alana ilgi duyan ve kendi başına bir şeyler yapmaya çalışan ya da içerik üreten kişiler neredeyse yok denecek kadar az. Federasyonların bu alanda herhangi bir girişimi veya teşvikini ise henüz görmedim
+
+Bu alanda uzmanlaşmak ve iş fırsatlarını yakalamak için yurt dışı, şu an için en doğru seçenek gibi görünüyor. 2017-2022 yılları arasında Türkiye’de bu alanda fırsatlar olmadığından, veri bilimci olarak teknoloji şirketlerinde tecrübe kazandım. 2021 yılı sonunda, artık yurt dışına gitme zamanımın geldiğini fark ettim ve o dönemdeki işimden istifa ettim.
+
+<center>![](assets/img/001_origin_story/img8.jpg)</center>
+<center>*Bölüm: Sins of the Fathers Chapter 2: Make a Wish*</center>
+
+Hayat bazen, beklemediğiniz anlarda güzel fırsatlar çıkarabiliyor. Fenerbahçe 2022 yılı başında Türkiye’de ilk defa bu alanda bir girişimde bulunarak Futbol A Takım Scouting ekibine bir veri analisti dahil etmek istediğini duyurdu. Ben de yıllardır keyif aldığım bir hobiyi gerçeğe dönüştürmek istedim ve Fenerbahçe’nin ilanına başvurumu yaptım.
+
+<center><img src="assets/img/001_origin_story/img9.jpg" style="width:40%" /></center>
+
+Mülakat aşamalarını başarıyla geçtikten sonra, başlangıçta yurt dışına gitme kararımı erteledim ve Mayıs 2022’de Fenerbahçe Futbol A Takım Scouting departmanında Veri Analisti olarak göreve başladım. Burada, oyuncu keşfi ve transfer süreçlerine yönelik veri odaklı projeler geliştirerek Fenerbahçe’ye katkı sağlıyorum.
+
+<!-- Instagram gönderisini buraya gömme kodu ile ekleyin -->
+<center>
+<blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/CdtFJSbqzDW/" data-instgrm-version="14">
+<a href="https://www.instagram.com/p/CdtFJSbqzDW/">Instagram Gönderisini Görüntüle</a>
+</blockquote>
+<script async src="//www.instagram.com/embed.js"></script>
+*Fenerbahçe'deki ilk haftam: Fenerbahçe U19 - Galatasaray U19 maçı*
+</center>
+
+<hr>
+
+## Blog Hakkında
+
+Spor analitiği ve Fenerbahçe ile olan serüvenim bu şekilde başladı ve gelişti. Bundan sonraki süreçte, spor analitiği alanındaki geniş kapsamlı ve birçok detayı barındıran konuları, en temelinden başlayarak adım adım ele almayı hedefliyorum.
+
+Sizlerin en çok merak ettiği konular ve sorular varsa, onları benimle iletişime geçerek paylaşabilirsiniz. İçerik üretirken, sizlere yardımcı olmak için elimden geleni yapacağım! 
+
+Bir sonraki içerikte görüşmek üzere.
+
+</div>
+</div>
+
+<!-- Sosyal Medya Paylaş -->
+<div class="extra-content">
+<body>
+<div class="mentorship-section">
+<h3>Sosyal Medya Hesaplarım</h3>
+<p style="text-align:center;font-size: 1.5rem;">Tüm sosyal medya hesaplarımdan beni takip edebilir ve iletişime geçebilirsiniz!</p>
+<div class="social-icons text-center mt-4">
+<a href="https://www.linkedin.com/in/ekrem-bayar/" target="_blank">
+<i class="fab fa-linkedin"></i>
+</a>
+<a href="https://x.com/EkremBayar_" target="_blank">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="25" height="25" fill="currentColor">
+<path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"></path>
+</svg>
+</a>
+<a href="https://www.instagram.com/ekrembayar_" target="_blank">
+<i class="fab fa-instagram"></i>
+</a>
+<a href="https://github.com/EkremBayar" target="_blank">
+<i class="fab fa-github"></i>
+</a>
+<a href="https://www.kaggle.com/ekrembayar" target="_blank">
+<i class="fab fa-kaggle"></i>
+</a>
+<a href="https://www.youtube.com/channel/UCB_2RXBvSw7NF6P9dQlsH1Q" target="_blank">
+<i class="fab fa-youtube"></i>
+</a>
+</div>
+<hr>
+<h3>Spor Analitiği Mentörlük ve Kariyer Önerileri</h3>
+<p style="font-size: 1.5rem;">Spor analitiği kariyerinize başlamak ya da bu alanda daha da ilerlemek mi istiyorsunuz? Sizlere özel olarak, spor analitiği kariyer önerileri hakkında 1 saatlik online görüşme imkanı sunuyorum!</p>
+<a href="https://superpeer.com/ekrembayar/-/spor-analitigi-kariyer-onerileri?s=d" target="_blank" class="custom-button">Randevu Al</a>
+</div>
+
+</body>
+
+<!-- Sosyal Medya Paylaş -->
+<head>
+<!-- Font Awesome ikonu için link -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+<style>
+/* Genel sosyal medya paylaşım kutusu */
+.social-share {
+text-align: center;
+margin-top: 30px;
+}
+
+.social-share p {
+font-size: 1.5rem;
+font-weight: 600;
+color: #333;
+margin-bottom: 20px;
+}
+
+/* Butonlar için ortak stil */
+.social-buttons {
+display: flex;
+justify-content: center;
+gap: 15px; /* Butonlar arasına boşluk */
+}
+
+.social-buttons a {
+display: flex;
+align-items: center;
+justify-content: center;
+text-decoration: none;
+padding: 12px 20px;
+border-radius: 30px;
+color: #fff;
+font-size: 1.1rem;
+transition: all 0.3s ease;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.social-buttons a:hover {
+transform: scale(1.1);
+}
+
+/* X (Twitter) Butonu */
+.x {
+background-color: #1da1f2; /* X (Twitter) için mavi renk */
+}
+
+/* LinkedIn Butonu */
+.linkedin {
+background-color: #0077b5;
+}
+
+/* WhatsApp Butonu */
+.whatsapp {
+background-color: #25d366;
+}
+
+/* İkonların butonla uyumlu olması için */
+.social-buttons a i, .social-buttons a svg {
+margin-right: 10px;
+font-size: 1.5rem;
+}
+</style>
+</head>
+
+<body>
+<div class="social-share">
+<p>Bu makaleyi paylaşın:</p>
+
+<!-- Butonlar yanyana olacak -->
+<div class="social-buttons">
+<!-- X Share Button -->
+<a id="x-share" class="x" href="#" target="_blank">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="40px" height="15px" fill="currentColor">
+<path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"></path>
+</svg> X'te Paylaş
+</a>
+
+<!-- LinkedIn Share Button -->
+<a id="linkedin-share" class="linkedin" href="#" target="_blank">
+<i class="fab fa-linkedin"></i> LinkedIn'de Paylaş
+</a>
+
+<!-- WhatsApp Share Button -->
+<a id="whatsapp-share" class="whatsapp" href="#" target="_blank">
+<i class="fab fa-whatsapp"></i> WhatsApp'ta Paylaş
+</a>
+</div>
+
+
+<script>
+// Sayfa URL'sini dinamik olarak alıyoruz
+var currentUrl = window.location.href;
+
+// Sosyal medya paylaşımlarını dinamik URL ile ayarlıyoruz
+document.getElementById("x-share").href = "https://twitter.com/intent/tweet?url=" + encodeURIComponent(currentUrl) + "&text=Okumak%20isterim:%20Süper%20makale!";
+document.getElementById("linkedin-share").href = "https://www.linkedin.com/shareArticle?mini=true&url=" + encodeURIComponent(currentUrl);
+document.getElementById("whatsapp-share").href = "https://api.whatsapp.com/send?text=" + encodeURIComponent("Okumak%20isterim:%20Süper%20makale!%20") + encodeURIComponent(currentUrl);
+</script>
+</body>
+</div>
+
+<!-- Footer-->
+<html>
+<body>
+<footer>
+<div class="container px-4 px-lg-5">
+<div class="row gx-4 gx-lg-5 justify-content-center">
+<div class="col-md-10 col-lg-8 col-xl-7">
+<div class="small text-center text-muted fst-italic">Copyright &copy; Ekrem Bayar</div>
+</div>
+</div>
+</div>
+</footer>
+
+<!-- En Üste Dön Butonu -->
+<button id="scrollToTopBtn" class="scroll-to-top" onclick="scrollToTop()">
+<i class="fas fa-arrow-up"></i>
+</button>
+<!-- Bootstrap core JS-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Core theme JS-->
+<script src="js/scripts.js"></script>
+</body>
+</html>
