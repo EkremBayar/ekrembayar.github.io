@@ -1,0 +1,486 @@
+---
+output: html_document
+params:   
+  title: "Veri Analitiği Süreci & Spor Analitiği Nedir?"
+  subtitle: "Rekabet Avantajı - Rekabet Üstünlüğü"
+  author: "Ekrem Bayar"
+  header_img: "https://raw.githubusercontent.com/EkremBayar/ekrembayar.github.io/main/assets/img/002_veri_spor_analitigi_img1.jpg"
+  url: "002_veri_analitigi_spor_analitigi.html"
+---
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="description" content=`r paste0(params$subtitle)` />
+<meta name="author" content="Ekrem Bayar" />
+<meta property="og:title" content=`r paste0(params$title)` />
+<meta property="og:description" content=`r paste0(params$subtitle)` />
+<meta property="og:image" content=`r paste0(params$header_img)` />
+<meta property="og:url" content=`r paste0("https://ekrembayar.github.io/",params$url)` />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content=`r paste0(params$title)` />
+<meta name="twitter:description" content=`r paste0(params$subtitle)` />
+<meta name="twitter:image" content=`r paste0(params$header_img)` />
+<meta name="twitter:url" content=`r paste0("https://ekrembayar.github.io/",params$url)` />
+<title>`r paste0(params$title)`</title>
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+<script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
+<link href="css/styles.css" rel="stylesheet" />
+<style>
+
+/* Navbar'ı Resmin Üzerine Getirme */
+.navbar-custom {
+position: absolute;
+top: 20px;    /* Navbar'ın yukarıdaki konumu */
+right: 20px;  /* Navbar'ın sağdaki konumu */
+z-index: 10;  /* Navbar'ı başlık resminin üzerine getirmek için z-index */
+color: white; /* Yazıları beyaz yapmak için */
+padding: 10px 20px; /* Navbar'a biraz iç boşluk ekleyelim */
+border-radius: 8px; /* Köşeleri yuvarlayalım */
+}
+/* Navbar linklerinin beyaz renkte olması */
+.navbar-custom .navbar-nav .nav-link {
+color: white; /* Link rengini beyaz yap */
+font-weight: bold; /* Linklerin biraz daha kalın olmasını sağlayalım */
+}
+/* Navbar linklerinin üzerine gelindiğinde renk değişimi */
+.navbar-custom .navbar-nav .nav-link:hover {
+color: #f0f0f0; /* Hover rengi beyaza yakın bir renk olsun */
+}
+/* Navbar stilini düzenleme */
+.navbar-custom .navbar-nav {
+flex-direction: row;
+}
+.navbar-custom .nav-item {
+margin-left: 10px;
+}
+/* Genel sayfa stil ayarları */
+body {
+font-family: 'Open Sans', sans-serif;
+background-color: #f8f9fa;
+margin: 0;
+padding: 0;
+}
+/* Görsellerin sağ tıklama ile kopyalanmasını engelle */
+img {
+pointer-events: none;  /* Görseli tıklanamaz hale getirir */
+}
+.container {
+max-width: 1200px;
+margin: 0 auto;
+padding: 20px;
+}
+/* İçerik Kutusu */
+.content-box {
+background-color: #ffffff;
+padding: 40px;
+border-radius: 8px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+margin-top: 50px;
+}
+/* Sosyal medya ikonları */
+.social-icons {
+display: flex;
+justify-content: center;
+gap: 20px;
+margin-top: 30px;
+list-style: none; /* Liste elemanları arasında alt çizgiyi engeller */
+padding: 0;
+}
+.social-icons a {
+font-size: 30px;
+color: #4e73df;
+transition: all 0.3s ease;
+text-decoration: none; /* Alt çizgiyi kaldırır */
+}
+.social-icons a:hover {
+color: #1e3d58;
+transform: scale(1.2);
+}
+.social-icons svg, .social-icons i {
+transition: all 0.3s ease;
+}
+/* Mentörlük kısmı */
+.mentorship-section {
+background-color: #ffffff;
+padding: 40px;
+border-radius: 8px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+margin-top: 50px;
+text-align: center;
+}
+.mentorship-section h3 {
+font-size: 2rem;
+color: #333;
+margin-bottom: 20px;
+}
+.mentorship-section p {
+font-size: 1.1rem;
+color: #666;
+margin-bottom: 20px;
+}
+.mentorship-section .custom-button {
+background-color: #4e73df;
+color: #fff;
+padding: 12px 30px;
+font-size: 1.1rem;
+border: none;
+border-radius: 50px;
+cursor: pointer;
+text-decoration: none;
+transition: all 0.3s ease;
+}
+.mentorship-section .custom-button:hover {
+background-color: #3e5bb0;
+transform: translateY(-3px);
+}
+/* Footer kısmı */
+footer {
+background-color: #f8f9fa;
+padding: 10px 0;
+text-align: center;
+font-size: 14px;
+color: #6c757d;
+margin-top: auto;
+}
+/* Footer kısmı */
+footer { background-color: #f8f9fa; padding: 10px 0; text-align: center; font-size: 14px; color: #6c757d; margin-top: auto; }
+/* En Üste Dön Butonu */
+.scroll-to-top {
+position: fixed;
+bottom: 30px;
+right: 30px;
+background-color: #4e73df;
+color: white;
+border: none;
+border-radius: 50%;
+width: 50px;
+height: 50px;
+display: none;
+align-items: center;
+justify-content: center;
+cursor: pointer;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+transition: all 0.3s ease;
+}
+.scroll-to-top:hover {
+background-color: #3e5bb0;
+transform: scale(1.1);
+}
+.scroll-to-top i {
+font-size: 24px;
+}
+</style>
+<script>
+// Sayfa kaydırıldıkça butonun görünmesini sağlayan JavaScript kodu
+window.onscroll = function() {
+if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+document.getElementById("scrollToTopBtn").style.display = "block";
+} else {
+document.getElementById("scrollToTopBtn").style.display = "none";
+}
+};
+
+// Sayfayı en üste kaydırma fonksiyonu
+function scrollToTop() {
+document.body.scrollTop = 0;
+document.documentElement.scrollTop = 0;
+}
+</script>
+<script>
+document.addEventListener('copy', function(e) {
+e.preventDefault();  // Kopyalama işlemini engeller
+});
+</script>
+<script>
+document.addEventListener('contextmenu', function(e) {
+e.preventDefault();  // Sağ tık menüsünü engeller
+});
+</script>
+</head>
+<body>
+<!-- Page Header-->
+<header class="masthead" style="background-image: url(`r paste0(params$header_img)`)">
+<div class="container position-relative px-4 px-lg-5">
+<div class="row gx-4 gx-lg-5 justify-content-center">
+<div class="col-md-10 col-lg-8 col-xl-7">
+<div class="post-heading">
+<h1>`r params$title`</h1>
+<h2 class="subheading">`r params$subtitle`</h2>
+<span class="meta">
+Yazar:
+<a href="#!">`r params$author`</a>
+, `r Sys.Date()`
+</span>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Navbar Başlık Resminin Sağ Alt Köşesine Ekleme -->
+<nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+<div class="container px-4 px-lg-5">
+<a class="navbar-brand" href="../index.html">Spor Analitiği</a>
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+Menu
+<i class="fas fa-bars"></i>
+</button>
+<div class="collapse navbar-collapse" id="navbarResponsive">
+<ul class="navbar-nav ms-auto py-4 py-lg-0">
+<li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="../index.html">Ana Sayfa</a></li>
+<li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="../blog.html">Blog</a></li>
+<li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="../archive.html">Arşiv</a></li>
+<li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="../about.html">Ben Kimim?</a></li>
+</ul>
+</div>
+</div>
+<script>
+// Menüye tıklanarak açılmasını engellemek için.
+document.addEventListener("DOMContentLoaded", function() {
+var navToggle = document.querySelector(".navbar-toggler");
+var navCollapse = document.querySelector("#navbarResponsive");
+
+// Menu toggle işlemi
+navToggle.addEventListener("click", function() {
+navCollapse.classList.toggle("collapse"); // Menü açma/kapama işlevi
+});
+});
+</script>
+</nav>
+</header>
+</body>
+</html>
+
+<!-- İçerik Kutusu -->
+<div class="content-box">
+<style>
+.content-box {
+font-size: 1.5rem; /* Font boyutunu arttır */
+}
+/* Başlıkların boyutunu da arttıralım */
+.content-box h1, .content-box h2, .content-box h3 {
+font-size: 3rem; /* Başlık fontu büyütüldü */
+color: #222;
+}
+/* Paragrafların font boyutunu biraz daha artırabiliriz */
+.content-box p {
+font-size: 1.5rem; /* Paragraf metni font boyutu */
+}
+</style>
+
+<!-- İçerik Başlangıcı -->
+**Spor analitiği**, veri analitiğinin bir alt alanıdır ve sporun çeşitli yönlerine dair daha bilinçli ve veriye dayalı kararlar alınmasını sağlar.
+
+**Veri analitiği**, ham verileri anlamlı bilgiye dönüştürme sürecidir ve günümüz iş dünyasında karar verme, strateji oluşturma ve inovasyon için temel bir araçtır. Veri analitiği süreci, verilerin toplanmasından sonuçların yorumlanmasına kadar bir dizi aşamadan oluşur. İşte bu sürecin temel adımları:
+
+1. Veri Toplama
+2. Veri Temizleme ve Düzenleme
+3. Veri Keşfi ve Görselleştirme
+4. Veri Analizi
+5. Model Geliştirme ve Uygulama
+6. Sonuçların Sunumu ve Eylem
+
+Literatürde bu adımlar içerisinde farklı süreçler de dahil edilebilir. Ben özetle bu şekilde süreçleri tanımlamak istedim. 
+
+Veri analitiği, günümüzde organizasyonların daha verimli ve etkili çalışabilmesi için kritik bir rol oynar. Bu yüzden, her bir aşama dikkatlice yürütülmeli ve elde edilen sonuçlar, doğru stratejiler geliştirmek için kullanılmalıdır. En iyi sonuçları elde edene kadar veri analitiği süreci baştan sona tekrar tekrar ele alınmalıdır.
+
+<center><img src="assets/img/002_veri_spor_analitigi/img1.jpg"/></center>
+
+Buraya kadar verdiğim bilgilerle, veri analitiğini kısaca bir iş problemini çözmeye yarayan bir araç olarak algılıyoruz. Günümüzde tüm sektörler kendi içerisinde iş problemlerini ve çözümlerini barındırıyor. Örneğin bir restoran zincirini düşündüğümüzde bazı iş problemlerimiz şunlar olabilir:
+
+-	*Yarın restoranlarımıza tahmini ne kadar müşteri gelecek?*
+-	*Tahmini müşteri sayısına göre pozisyon bazlı ne kadar personel çalıştırmalıyım?*
+-	*Stok yönetimimi nasıl planlamalıyım?*
+-	*Ürünleri hangi tedarikçiden, ne kadar miktar ve ne kadar fiyata almalıyım?*
+-	*…*
+
+Bu gibi iş problemlerinin veri analitiği yardımıyla çözülmesi, restoranların karlarını artırması, verimliliği yükseltmesi ve daha iyi müşteri deneyimleri yaratması gibi önemli faydalar sağlar. Ayrıca, operasyonel süreçlerin optimize edilmesi, personel ve stok yönetiminin daha etkin hale gelmesi ve pazarlama stratejilerinin daha hedeflenmiş ve etkili bir şekilde uygulanması gibi alanlarda da restoranlara rekabet avantajı kazandırır. Sonuç olarak, veri analitiği, restoran zincirlerinin sürdürülebilir büyümesine katkıda bulunarak, uzun vadeli başarılarını destekler.
+
+Spor sektöründe ana amaç takımların ve sporcuların rakiplerine karşı **rekabet avantajı** elde ederek veya **rekabet üstünlüğü** kurarak sürdürülebilir sportif ve finansal başarıya ulaşmaktır. Spor analitiği de **rekabet avantajı** elde edebilmek veya **rekabet üstünlüğü** kurabilmek için **saha içi** ve **saha dışı** iş problemlerine yoğunlaşır. **Veri analitiği süreçleri diğer sektörlerde olduğu gibi aynı şekilde burada da uygulanır.**
+
+<center><img src="assets/img/002_veri_spor_analitigi/img2.jpg"/></center>
+
+Spor analitiği, spor endüstrisinde giderek daha fazla önem kazanan bir araç haline gelmiştir. Veri analitiği yöntemlerinin spor dünyasında nasıl etkin bir şekilde kullanıldığına dair bir kaç örnek üzerinden, spor analitiğinin farklı alanlarda nasıl işlediğini inceleyebiliriz.
+
+**1. Oyuncu Performansı İzleme ve Geliştirme:** Sporcuların performansını ölçmek, antrenmanları optimize etmek ve gelişim alanlarını belirlemek, spor analitiğinin en yaygın kullanım alanlarından biridir. Günümüz spor dünyasında, oyuncuların her hareketi, attığı her pas, yaptığı her şut, koştuğu mesafe gibi veriler toplanır ve analiz edilir. Bu veriler, oyuncuların fiziksel durumlarını, oyun içindeki davranışlarını ve stratejik kararlarını anlamak için kullanılır.
+
+**Örnek:** Futbol takımlarında oyuncuların koşu mesafeleri, hızları, pas başarı oranları gibi veriler toplanarak oyuncuların performansı hakkında derinlemesine bilgi edinilir. Bu veriler, antrenman programlarının kişiye özel hale getirilmesine yardımcı olabilir.
+
+**2. Sakatlık Tahmin ve Önleme:** Spor analitiği, sakatlıkları önlemek için de kritik bir rol oynar. Sporcuların geçmiş sakatlıkları, antrenman yoğunluğu, fiziksel parametreler ve oyun içindeki hareketleri gibi veriler analiz edilerek, gelecekteki sakatlıklar hakkında tahminlerde bulunulabilir. Bu analizler, oyuncuların sağlığını koruyarak, performanslarını sürdürülebilir şekilde artırmalarına olanak tanır.
+
+**Örnek:** Basketbol takımlarında, oyuncuların ayak bileği hareketliliği ve bacak kaslarındaki gerilme verileri izlenerek, potansiyel sakatlıklar önceden tahmin edilebilir ve uygun önlemler alınabilir.
+
+**Maç Stratejisi ve Rakip Analizi:** Veri analitiği, rakip analizinin yanı sıra, takımın maç stratejilerinin belirlenmesinde de etkili bir araçtır. Rakip takımların oyun tarzları, stratejileri ve zayıf yönleri analiz edilerek, buna uygun taktikler geliştirilir. Bu veriler, antrenörlere daha bilinçli ve veriye dayalı kararlar alabilme imkânı sunar.
+
+**Örnek:** Bir futbol takımı, rakiplerinin önceki maçlarındaki topa sahip olma oranlarını, hücum düzenlerini, savunma hatalarını analiz ederek, buna göre kendi oyun stratejisini şekillendirebilir.
+
+**3. Takım Başarısı ve Yönetim:** Spor analitiği, sadece bireysel oyuncu performansı ile sınırlı kalmaz, aynı zamanda takımın genel başarısına da katkıda bulunur. Takım performansını artırmak için, oyuncu uyumu, saha içindeki takım dinamikleri ve oyuncu değişikliklerinin etkisi gibi faktörler analiz edilir. Bu, takımın kolektif başarısını etkileyebilecek stratejik kararlar almayı mümkün kılar.
+
+**Örnek:** Bir basketbol takımının, saha içindeki 5 oyuncunun birbirleriyle olan uyumları, maçlar sırasında yapılan oyuncu değişikliklerinin takım performansı üzerindeki etkisi incelenebilir.
+
+**4. Spor Pazarlaması ve Fan Etkileşimi:** Spor analitiği yalnızca saha içindeki verilerle sınırlı kalmaz; aynı zamanda spor organizasyonları, taraftar etkileşimini ve pazarlama stratejilerini optimize etmek için de kullanılır. Takımlar, taraftarlarının tercihlerini, davranışlarını ve harcama alışkanlıklarını analiz ederek daha hedeflenmiş pazarlama kampanyaları geliştirebilirler. Ayrıca, dijital platformlar üzerinden elde edilen veriler, spor organizasyonlarının daha etkili ve kişiselleştirilmiş içerikler sunmasına olanak tanır.
+
+**Örnek:** Bir futbol kulübü, sosyal medya etkileşimleri, bilet satışları ve taraftar geri bildirimlerini analiz ederek, hangi maçların daha fazla ilgi gördüğünü belirleyebilir ve gelecekteki etkinliklerini buna göre planlayabilir.
+
+### Spor Analitiği ve Gelecek Perspektifi
+
+Gelecekte, spor analitiği daha da kapsamlı ve detaylı hale gelecek. Yapay zeka (AI) ve makine öğrenimi (ML) gibi ileri düzey teknolojiler, daha doğru tahminler yapmayı ve stratejileri daha hızlı optimize etmeyi mümkün kılacak. Bununla birlikte, veri analitiği sadece saha içi performansı değil, aynı zamanda oyuncu sağlığını, takım dinamiklerini ve spor organizasyonlarının finansal yönetimini de kapsayan bir alan haline gelecek.
+
+Spor analitiğinin gelişmesiyle birlikte, takımlar daha bilinçli ve stratejik kararlar alabilecek, antrenörler ise veri odaklı yaklaşımlar sayesinde oyuncu gelişimini daha iyi yönlendirebilecektir. Ayrıca, bu süreç, spor organizasyonlarının sürdürülebilir başarıyı elde etmelerine yardımcı olacak ve spor sektöründeki rekabet ortamını daha dinamik ve yenilikçi hale getirecektir.
+
+<hr>
+
+**Sonuç olarak**, spor analitiği, modern spor dünyasında başarının anahtarlarından biri haline gelmiştir. Hem saha içinde hem de saha dışında uygulanan veri analitiği süreçleri, sporcuların performansını artırırken, takımların stratejik kararlar almasını kolaylaştırır ve rekabet avantajı yaratır. Spor organizasyonları, bu süreçleri kullanarak daha verimli, sürdürülebilir ve başarılı bir şekilde ilerleyebilirler. Veri analitiği, spor dünyasında sadece bugünün değil, geleceğin kazananlarını belirleyecek olan önemli bir araçtır.
+
+
+<!-- İçerik Bitişi -->
+</div>
+</div>
+
+
+
+<!-- Sosyal Medya Paylaş -->
+<div class="extra-content">
+<body>
+<div class="mentorship-section">
+<h3>Sosyal Medya Hesaplarım</h3>
+<p style="text-align:center;font-size: 1.5rem;">Tüm sosyal medya hesaplarımdan beni takip edebilir ve iletişime geçebilirsiniz!</p>
+<div class="social-icons text-center mt-4">
+<a href="https://www.linkedin.com/in/ekrem-bayar/" target="_blank">
+<i class="fab fa-linkedin"></i>
+</a>
+<a href="https://x.com/EkremBayar_" target="_blank">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="25" height="25" fill="currentColor">
+<path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"></path>
+</svg>
+</a>
+<a href="https://www.instagram.com/ekrembayar_" target="_blank">
+<i class="fab fa-instagram"></i>
+</a>
+<a href="https://github.com/EkremBayar" target="_blank">
+<i class="fab fa-github"></i>
+</a>
+<a href="https://www.kaggle.com/ekrembayar" target="_blank">
+<i class="fab fa-kaggle"></i>
+</a>
+<a href="https://www.youtube.com/channel/UCB_2RXBvSw7NF6P9dQlsH1Q" target="_blank">
+<i class="fab fa-youtube"></i>
+</a>
+</div>
+<hr>
+<h3>Spor Analitiği Mentörlük ve Kariyer Önerileri</h3>
+<p style="font-size: 1.5rem;">Spor analitiği kariyerinize başlamak ya da bu alanda daha da ilerlemek mi istiyorsunuz? Sizlere özel olarak, spor analitiği kariyer önerileri hakkında 1 saatlik online görüşme imkanı sunuyorum!</p>
+<a href="https://cal.com/ekrem-bayar-5yvub1/60min" target="_blank" class="custom-button">Randevu Al</a>
+</div>
+</body>
+
+<!-- Sosyal Medya Paylaş -->
+<head>
+<!-- Font Awesome ikonu için link -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+<style>
+/* Genel sosyal medya paylaşım kutusu */
+.social-share {
+text-align: center;
+margin-top: 30px;
+}
+.social-share p {
+font-size: 1.5rem;
+font-weight: 600;
+color: #333;
+margin-bottom: 20px;
+}
+/* Butonlar için ortak stil */
+.social-buttons {
+display: flex;
+justify-content: center;
+gap: 15px; /* Butonlar arasına boşluk */
+}
+.social-buttons a {
+display: flex;
+align-items: center;
+justify-content: center;
+text-decoration: none;
+padding: 12px 20px;
+border-radius: 30px;
+color: #fff;
+font-size: 1.1rem;
+transition: all 0.3s ease;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.social-buttons a:hover {
+transform: scale(1.1);
+}
+/* X (Twitter) Butonu */
+.x {background-color: #1da1f2; /* X (Twitter) için mavi renk */}
+/* LinkedIn Butonu */
+.linkedin {background-color: #0077b5;}
+/* WhatsApp Butonu */
+.whatsapp {background-color: #25d366;}
+/* İkonların butonla uyumlu olması için */
+.social-buttons a i, .social-buttons a svg {
+margin-right: 10px;
+font-size: 1.5rem;
+}
+</style>
+</head>
+
+<body>
+<div class="social-share">
+<p>Bu makaleyi paylaşın:</p>
+
+<!-- Butonlar yanyana olacak -->
+<div class="social-buttons">
+<!-- X Share Button -->
+<a id="x-share" class="x" href="#" target="_blank">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="40px" height="15px" fill="currentColor">
+<path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"></path>
+</svg> X'te Paylaş
+</a>
+
+<!-- LinkedIn Share Button -->
+<a id="linkedin-share" class="linkedin" href="#" target="_blank">
+<i class="fab fa-linkedin"></i> LinkedIn'de Paylaş
+</a>
+
+<!-- WhatsApp Share Button -->
+<a id="whatsapp-share" class="whatsapp" href="#" target="_blank">
+<i class="fab fa-whatsapp"></i> WhatsApp'ta Paylaş
+</a>
+</div>
+
+<script>
+// Sayfa URL'sini dinamik olarak alıyoruz
+var currentUrl = window.location.href;
+// Sosyal medya paylaşımlarını dinamik URL ile ayarlıyoruz
+document.getElementById("x-share").href = "https://twitter.com/intent/tweet?url=" + encodeURIComponent(currentUrl) + "&text=Okumak%20isterim:%20Süper%20makale!";
+document.getElementById("linkedin-share").href = "https://www.linkedin.com/shareArticle?mini=true&url=" + encodeURIComponent(currentUrl);
+document.getElementById("whatsapp-share").href = "https://api.whatsapp.com/send?text=" + encodeURIComponent("Okumak%20isterim:%20Süper%20makale!%20") + encodeURIComponent(currentUrl);
+</script>
+</body>
+</div>
+
+<!-- Footer-->
+<html>
+<body>
+<footer>
+<div class="container px-4 px-lg-5">
+<div class="row gx-4 gx-lg-5 justify-content-center">
+<div class="col-md-10 col-lg-8 col-xl-7">
+<div class="small text-center text-muted fst-italic">Copyright &copy; Ekrem Bayar</div>
+</div>
+</div>
+</div>
+</footer>
+<!-- En Üste Dön Butonu -->
+<button id="scrollToTopBtn" class="scroll-to-top" onclick="scrollToTop()">
+<i class="fas fa-arrow-up"></i>
+</button>
+<!-- Bootstrap core JS-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Core theme JS-->
+<script src="js/scripts.js"></script>
+</body>
+</html>
