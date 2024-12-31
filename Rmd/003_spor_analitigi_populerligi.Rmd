@@ -1,0 +1,570 @@
+---
+output: html_document
+params:   
+  title: "Spor Analitiği Nasıl Popüler Hale Geldi?"
+  subtitle: ""
+  author: "Ekrem Bayar"
+  header_img: "https://raw.githubusercontent.com/EkremBayar/ekrembayar.github.io/main/assets/img/003_populer_img1.jpg"
+  url: "003_spor_analitigi_populerligi.html"
+---
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="description" content=`r paste0(params$subtitle)` />
+<meta name="author" content="Ekrem Bayar" />
+<meta property="og:title" content=`r paste0(params$title)` />
+<meta property="og:description" content=`r paste0(params$subtitle)` />
+<meta property="og:image" content=`r paste0(params$header_img)` />
+<meta property="og:url" content=`r paste0("https://ekrembayar.github.io/",params$url)` />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content=`r paste0(params$title)` />
+<meta name="twitter:description" content=`r paste0(params$subtitle)` />
+<meta name="twitter:image" content=`r paste0(params$header_img)` />
+<meta name="twitter:url" content=`r paste0("https://ekrembayar.github.io/",params$url)` />
+<title>`r paste0(params$title)`</title>
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+<script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css" />
+<link href="css/styles.css" rel="stylesheet" />
+<style>
+
+/* Navbar'ı Resmin Üzerine Getirme */
+.navbar-custom {
+position: absolute;
+top: 20px;    /* Navbar'ın yukarıdaki konumu */
+right: 20px;  /* Navbar'ın sağdaki konumu */
+z-index: 10;  /* Navbar'ı başlık resminin üzerine getirmek için z-index */
+color: white; /* Yazıları beyaz yapmak için */
+padding: 10px 20px; /* Navbar'a biraz iç boşluk ekleyelim */
+border-radius: 8px; /* Köşeleri yuvarlayalım */
+}
+/* Navbar linklerinin beyaz renkte olması */
+.navbar-custom .navbar-nav .nav-link {
+color: white; /* Link rengini beyaz yap */
+font-weight: bold; /* Linklerin biraz daha kalın olmasını sağlayalım */
+}
+/* Navbar linklerinin üzerine gelindiğinde renk değişimi */
+.navbar-custom .navbar-nav .nav-link:hover {
+color: #f0f0f0; /* Hover rengi beyaza yakın bir renk olsun */
+}
+/* Navbar stilini düzenleme */
+.navbar-custom .navbar-nav {
+flex-direction: row;
+}
+.navbar-custom .nav-item {
+margin-left: 10px;
+}
+/* Genel sayfa stil ayarları */
+body {
+font-family: 'Open Sans', sans-serif;
+background-color: #f8f9fa;
+margin: 0;
+padding: 0;
+}
+/* Görsellerin sağ tıklama ile kopyalanmasını engelle */
+img {
+pointer-events: none;  /* Görseli tıklanamaz hale getirir */
+}
+.container {
+max-width: 1200px;
+margin: 0 auto;
+padding: 20px;
+}
+/* İçerik Kutusu */
+.content-box {
+background-color: #ffffff;
+padding: 40px;
+border-radius: 8px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+margin-top: 50px;
+}
+/* Sosyal medya ikonları */
+.social-icons {
+display: flex;
+justify-content: center;
+gap: 20px;
+margin-top: 30px;
+list-style: none; /* Liste elemanları arasında alt çizgiyi engeller */
+padding: 0;
+}
+.social-icons a {
+font-size: 30px;
+color: #4e73df;
+transition: all 0.3s ease;
+text-decoration: none; /* Alt çizgiyi kaldırır */
+}
+.social-icons a:hover {
+color: #1e3d58;
+transform: scale(1.2);
+}
+.social-icons svg, .social-icons i {
+transition: all 0.3s ease;
+}
+/* Mentörlük kısmı */
+.mentorship-section {
+background-color: #ffffff;
+padding: 40px;
+border-radius: 8px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+margin-top: 50px;
+text-align: center;
+}
+.mentorship-section h3 {
+font-size: 2rem;
+color: #333;
+margin-bottom: 20px;
+}
+.mentorship-section p {
+font-size: 1.1rem;
+color: #666;
+margin-bottom: 20px;
+}
+.mentorship-section .custom-button {
+background-color: #4e73df;
+color: #fff;
+padding: 12px 30px;
+font-size: 1.1rem;
+border: none;
+border-radius: 50px;
+cursor: pointer;
+text-decoration: none;
+transition: all 0.3s ease;
+}
+.mentorship-section .custom-button:hover {
+background-color: #3e5bb0;
+transform: translateY(-3px);
+}
+/* Footer kısmı */
+footer {
+background-color: #f8f9fa;
+padding: 10px 0;
+text-align: center;
+font-size: 14px;
+color: #6c757d;
+margin-top: auto;
+}
+/* Footer kısmı */
+footer { background-color: #f8f9fa; padding: 10px 0; text-align: center; font-size: 14px; color: #6c757d; margin-top: auto; }
+/* En Üste Dön Butonu */
+.scroll-to-top {
+position: fixed;
+bottom: 30px;
+right: 30px;
+background-color: #4e73df;
+color: white;
+border: none;
+border-radius: 50%;
+width: 50px;
+height: 50px;
+display: none;
+align-items: center;
+justify-content: center;
+cursor: pointer;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+transition: all 0.3s ease;
+}
+.scroll-to-top:hover {
+background-color: #3e5bb0;
+transform: scale(1.1);
+}
+.scroll-to-top i {
+font-size: 24px;
+}
+</style>
+<script>
+// Sayfa kaydırıldıkça butonun görünmesini sağlayan JavaScript kodu
+window.onscroll = function() {
+if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+document.getElementById("scrollToTopBtn").style.display = "block";
+} else {
+document.getElementById("scrollToTopBtn").style.display = "none";
+}
+};
+
+// Sayfayı en üste kaydırma fonksiyonu
+function scrollToTop() {
+document.body.scrollTop = 0;
+document.documentElement.scrollTop = 0;
+}
+</script>
+<script>
+document.addEventListener('copy', function(e) {
+e.preventDefault();  // Kopyalama işlemini engeller
+});
+</script>
+<script>
+document.addEventListener('contextmenu', function(e) {
+e.preventDefault();  // Sağ tık menüsünü engeller
+});
+</script>
+</head>
+<body>
+<!-- Page Header-->
+<header class="masthead" style="background-image: url(`r paste0(params$header_img)`)">
+<div class="container position-relative px-4 px-lg-5">
+<div class="row gx-4 gx-lg-5 justify-content-center">
+<div class="col-md-10 col-lg-8 col-xl-7">
+<div class="post-heading">
+<h1>`r params$title`</h1>
+<h2 class="subheading">`r params$subtitle`</h2>
+<span class="meta">
+Yazar:
+<a href="#!">`r params$author`</a>
+, `r Sys.Date()`
+</span>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Navbar Başlık Resminin Sağ Alt Köşesine Ekleme -->
+<nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
+<div class="container px-4 px-lg-5">
+<a class="navbar-brand" href="../index.html">Spor Analitiği</a>
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+Menu
+<i class="fas fa-bars"></i>
+</button>
+<div class="collapse navbar-collapse" id="navbarResponsive">
+<ul class="navbar-nav ms-auto py-4 py-lg-0">
+<li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="../index.html">Ana Sayfa</a></li>
+<li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="../blog.html">Blog</a></li>
+<li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="../archive.html">Arşiv</a></li>
+<li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="../about.html">Ben Kimim?</a></li>
+</ul>
+</div>
+</div>
+<script>
+// Menüye tıklanarak açılmasını engellemek için.
+document.addEventListener("DOMContentLoaded", function() {
+var navToggle = document.querySelector(".navbar-toggler");
+var navCollapse = document.querySelector("#navbarResponsive");
+
+// Menu toggle işlemi
+navToggle.addEventListener("click", function() {
+navCollapse.classList.toggle("collapse"); // Menü açma/kapama işlevi
+});
+});
+</script>
+</nav>
+</header>
+</body>
+</html>
+
+<!-- İçerik Kutusu -->
+<div class="content-box">
+<style>
+.content-box {
+font-size: 1.5rem; /* Font boyutunu arttır */
+}
+/* Başlıkların boyutunu da arttıralım */
+.content-box h1, .content-box h2, .content-box h3 {
+font-size: 3rem; /* Başlık fontu büyütüldü */
+color: #222;
+}
+/* Paragrafların font boyutunu biraz daha artırabiliriz */
+.content-box p {
+font-size: 1.5rem; /* Paragraf metni font boyutu */
+}
+</style>
+
+<!-- İçerik Başlangıcı -->
+Spor, tarih boyunca insan kültürünün önemli bir parçası olmuştur ve zamanla daha profesyonel bir düzeye ulaşarak hayatımızın ayrılmaz bir öğesi haline gelmiştir. Modern spor dallarının popülerleşmesiyle birlikte, sporun sadece bir eğlence aracı olmanın ötesine geçtiği, aynı zamanda sayılarla ve istatistiklerle analiz edilen bir alan haline geldiği görülmektedir. Spor istatistikleri, hem sporcuların performanslarını değerlendirme hem de takımların stratejilerini optimize etme açısından büyük bir rol oynamaktadır. 
+
+Bu yazıda, spor analitiğinin gelişim sürecine, özellikle son 20 yılda yaşanan devrimsel değişimlere ve veri analitiğinin spor dünyasında nasıl büyük bir etki yarattığına odaklanacağız.
+
+Spor analitiği, modern anlamda sadece son 20 yıldır popülerleşmiş olsa da, istatistiksel analiz ve veri bilimi literatürü çok daha eskiye dayanmaktadır. Özellikle 20. yüzyılın başlarından itibaren, matematiksel ve istatistiksel yaklaşımlar, spor dünyasında performans ölçümleri ve strateji geliştirme için kullanılmaya başlanmıştır. Ancak, spor analitiğinin gerçek anlamda "bilimsel" bir disiplin olarak gelişimi, bilgisayar bilimleri ve veri analitiği alanlarının ilerlemesiyle mümkün olmuştur.
+
+### Algoritmaların Gelişimi ve Çıkış Tarihleri
+
+Veri analitiği literatüründeki temel algoritmaların çoğu, son 20 yıldan önce ortaya çıkmış olsa da, modern bilgisayarlar ve büyük veri teknolojilerinin gelişmesi, bu algoritmaların etkin bir şekilde kullanılmasını mümkün kılmıştır. Aşağıda, veri analitiği literatürüne damgasını vuran önemli algoritmaların çıkış tarihlerini ve kısa açıklamalarını bulabilirsiniz:
+
+- 1805 - Lineer Regresyon & En Küçük Kareler Yöntemi - Carl Friedrich Gauss
+- 1837 - Poisson Regresyon - Siméon-Denis Poisson
+- 1901 - Principal Component Analysis (PCA) – Karl Pearson
+- 1908 - Çoklu Doğrusal Regresyon - Sir Francis Galton
+- 1940'lar - Gradient Descent - Rosenbrock
+- 1951 - K-En Yakın Komşu - Fix ve Hodges 
+- 1958 - Lojistik Regresyon - David Cox
+- 1958 - Perceptron (İlk Yapay Sinir Ağı) - Frank Rosenblatt 
+- 1960'lar - Naive Bayes - Thomas Bayes'in teorisinden türetilmiştir
+- 1960'lar - Hiyerarşik Kümeleme Robert Sokal ve Peter Sneath
+- 1967 - k-means - J. MacQueen 
+- 1970'ler - Ridge Regresyon - A.N. Tikhonov 
+- 1972 - Genelleştirilmiş Regresyon - John Nelder ve Robert Wedderburn
+- 1980'ler - Autoencoders - Geoffrey Hinton
+- 1980'ler - Multilayer Perceptron (MLP) - Geoffrey Hinton ve diğer araştırmacılar
+- 1980'ler - Convolutional Neural Networks (CNN) - Yann LeCun
+- 1980'ler - Recurrent Neural Networks (RNN) - John Hopfield
+- 1986 - Karar Ağaçları - Ross Quinlan 
+- 1986 - Ağaç Tabanlı Regresyon (CART) - Brieman ve arkadaşları 
+- 1986 - Backpropagation - Geoffrey Hinton, David Rumelhart ve Ronald Williams
+- 1992 - Destek Vektör Makineleri (SVM) - Vladimir Vapnik ve Alexey Chervonenkis
+- 1996 - Lasso Regresyon - Robert Tibshirani
+- 1996 - Bagging - Leo Breiman
+- 1996 - AdaBoost - Yoav Freund ve Robert Schapire
+- 1996 - DBSCAN - Martin Ester, Hans-Peter Kriegel, Jörg Sander, Xiaowei Xu
+- 1997 - Long Short-Term Memory (LSTM) - Sepp Hochreiter ve Jürgen Schmidhuber 
+- 1999 - Gradient Boosting - Jeremiah Friedman 
+- 2001 - Random Forests - Leo Breiman 
+- 2005 - Elastic Net Regresyon - Zou ve Hastie
+- 2014 - Generative Adversarial Networks (GANs) - Ian Goodfellow
+- 2016 - XGBoost - Tianqi Chen
+- 2017 - LightGBM - Microsoft 
+- 2017 - CatBoost - Yandex 
+- 2017 - Transformers - Vaswani
+- 2018 - BERT - Google AI Language
+
+Tabii ki de literatür bu algoritmalarla sınırlı değil, aralarda ve 2018 sonrasında bahsetmediğim sayısız algoritma bulunuyor. Literatürdeki bütün yöntemleri uzun uzun yazsak bile 2018'den sonrasını takip etmek çok mümkün değil. Günümüzde artık her gün yeni bir model ortaya çıkabiliyor ve her gün veri analitiği literatürü güncelleniyor diyebiliriz.
+
+### Son 20 Yılda Veri Depolama, İşleme ve İşlem Gücündeki Artış
+
+Algoritmaların hızlıca tarihçesine baktığımızda uzun bir geçmiş olduğunu görebiliyoruz. Ancak bu algoritmaların veri setleri üzerinde test edilmesi ve  uygulanabilirliği geçmişte çok mümkün değildi. Günümüz teknolojik altyapısı, işlem gücü, depolama kapasitesi, veri toplama kolaylığı gibi konular geçmiş için çok büyük problemlerdi. Son 20 yıl içerisinde, veri depolama, işleme ve işlem gücü konusunda sağlanan üstel artış, algoritmaların gerçek zamanlı ve büyük ölçekli veri üzerinde kullanılmasını mümkün kılmıştır. Özellikle bulut bilişim, büyük veri teknolojileri (Hadoop, Spark vb.) ve paralel işlem gücü sayesinde, milyonlarca veri noktası hızlı bir şekilde işlenebilmektedir. Bu yüzden, *"Günümüzün petrolü"* olarak adlandırılan şey, verilerin kendisi olmuştur. Bu ifade, özellikle dijital dünyada veri ve bilgiye duyulan talebin artışıyla ortaya çıkan bir benzetmedir. 
+
+### Günümüzün Petrolü: Data
+
+Veri (data), doğru şekilde kullanılmadığında ya da işlenmediğinde değerli bir kaynak olarak tükenebilir ya da anlamını kaybedebilir. Bu nedenle "günümüzün petrolü" ifadesi, verinin yönetimi, işlenmesi ve korunmasının ne kadar önemli olduğunu vurgulayan bir metafordur.
+
+<center>![](assets/img/003_spor_analitigi_populerligi/img1.jpg)</center>
+<center>*Görsel: The Economist - "The world’s most valuable resource is no longer oil, but data"*</center>
+<br>
+
+- Tıpkı petrol gibi, veri de doğru şekilde işlendiğinde ve analiz edildiğinde büyük bir değer yaratabilir. Petrol, işlenip enerjiye dönüştürülebilirken, veriler de analiz edilip anlamlı bilgilere dönüştürülebilir. Bu bilgiler, şirketlere ve kurumlara stratejik avantaj sağlar.
+
+- Petrol, sanayi devriminde olduğu gibi veri de günümüzde birçok yeni sektörün gelişmesine ve inovasyona yol açmıştır. Yapay zeka, makine öğrenimi, büyük veri analitiği, IoT (nesnelerin interneti) gibi alanlar, veriye dayalı yeniliklere örnektir.
+
+- Veri, internetin yaygınlaşmasıyla büyük bir talep görmeye başlamıştır. Şirketler, kullanıcıların çevrimiçi davranışlarını izleyerek hedefli reklamlar, ürün geliştirme ve pazar stratejileri oluştururlar. Bu nedenle veri, ekonomik değeri olan bir hammaddeye dönüşmüştür.
+
+- Veri, sabit bir kaynak gibi değil, sürekli olarak üretilen ve gelişen bir yapıdır. Her şey veri üretiyor ve bu veri sürekli bir döngüyle işleniyor. Tıpkı petrolün çıkarılması ve işlenmesi gibi, verinin de işlenmesi ve kullanılabilir bilgiye dönüştürülmesi önemlidir.
+
+- Petrol, ekonomiler için kritik bir kaynakken, veri de günümüz dünyasında benzer şekilde kritik bir rol oynar. Veri, şirketlerin karar alma süreçlerinde, devlet politikalarında, sağlık alanında, finansal işlemlerde ve pek çok başka sektörde temel bir faktör haline gelmiştir.
+
+- Petrolün kıt kaynak olması gibi, veri de önemli bir değer taşıdığı için güvenliği ve gizliliği büyük bir endişe kaynağıdır. Veri ihlalleri, kişisel bilgiler ve siber saldırılar gibi tehditler, verinin doğru şekilde korunmasını gerektiren bir güvenlik meselesi yaratır.
+
+- Petrolün sahipliği, kontrolü ve dağıtımı büyük şirketlerin ve devletlerin elindeyken, veri de aynı şekilde büyük teknoloji şirketlerinin ve platformlarının denetimindedir. Bu durum, veri gizliliği, etik ve düzenlemeler gibi yeni sorunları gündeme getirmektedir.
+
+Veri, günümüz dünyasında tüm sektörler için önemli bir yakıt kaynağı oldu ve veri sayesinde çok önemli gelişmeler, devrimler yaşandı. Spor sektöründe de büyük fırsatlar sunmasıyla birlikte veri analitiğini benimseyen federasyonlar, kulüpler, oyuncular ve spor organizasyonları için rekabet üstünlüğünde avantajlı hale geldiler. 
+
+### Medya ve Taraftar Katılımı
+
+Veri analitiği sürecinde, analiz edilen verilerin veya elde edilen sonuçların en etkili şekilde sunulması çok önemlidir. Bu, genellikle veriyi basitleştirerek ve anlaşılabilir hale getirerek yapılır. Betimsel (sözel) açıklamalar ve görsel araçlar (grafikler, tablolar vb.) kullanılarak, karmaşık veriler daha açık ve ikna edici bir şekilde karşı tarafa aktarılır. Bu tür bir sunum, izleyicilerin veya dinleyicilerin veriyi anlamalarını ve doğru çıkarımlar yapmalarını sağlar.
+
+Spor istatistikleri, takım ve oyuncu performanslarını yorumlamada önemli bir içerik malzemesi olması ve taraftarların ilgisini çekmesi sebebiyle medya sektörü tarafından sıklıkla kullanılır.
+
+- *Takım kaç kere ceza sahasına girdi?*
+- *Topla oynama yüzdeleri*
+- *En çok koşan oyuncular*
+- *İkili mücadele kazanma sayıları*
+- *İsabetli şut sayısı ve beklenen gol (veya gol beklentisi, xG: Expected Goal)*
+- *...*
+
+gibi istatistiklere dayalı konuşmaları sıklıkla maç öncesi ve maç sonrası programlarda görüyoruz. Geleneksel medyaya ek olarak, sosyal medyanın ve YouTube'daki spor kanallarının gücüyle spor istatistikleri daha fazla ön plana çıkmış oldu. 
+
+Örnek olarak, aşağıdaki görselde 12 Ekim 2023 tarihinde oynanan Hırvatistan - Türkiye maçı sonrasında Twitter/X ve YouTube üzerinden aldığım kesitler yer alıyor. Bu maç içerisinde Türkiye milli takımımızın ve Fenerbahçe'nin orta saha oyuncusu İsmail Yüksek'in göstermiş olduğu harika performansı herkesin takdirini toplamıştı ve maç sonunda hem geleneksel medyada hem sosyal medyada hem de YouTube'daki spor kanallarında uzunca konuşuldu ve maç içerisinde yapmış olduğu aksiyonlar, istatistiksel olarak bu mecralarda yer buldu. 
+
+<center>![](assets/img/003_spor_analitigi_populerligi/img2.jpg)</center>
+<center>*Görsel: Hırvatistan-Türkiye maçı sonrası, 12 Ekim 2023*</center>
+<br>
+
+### Moneyball ve Diğer Başarı Hikayeleri
+
+Moneyball ve diğer spor dallarında başarılı veri analitiği uygulamaları, spor analitiğini popüler hale getirmede önemli bir rol oynadı ve sporun daha bilimsel bir bakış açısıyla ve veri odaklı yaklaşımla yönetilmesinin mümkün olduğunu kanıtladı. Bu başarı hikayeleri, hem profesyonel spor kulüplerinin hem de futbol, basketbol, beyzbol, basketbol gibi çeşitli spor dallarındaki veri analisti ve istatistikçilerin nasıl önemli kararlar aldığını ve bunların sonuçlarını değiştirdiğini gösterdi. Veriye dayalı stratejik kararlar, hem küçük hem de büyük takımlar için rekabet avantajı sağladı. Bu hikayeler, spor yöneticilerinin, antrenörlerin ve analistlerin oyun anlayışlarını dönüştürdü ve sporun geleceğini daha analitik bir temele oturtan bir hareketin temelini attı. Bu dönüşüm, sporun sadece fiziksel ve duygusal yönlerine odaklanmanın ötesine geçerek veriye dayalı kararlar almayı mümkün kıldı. 
+
+<center>![](assets/img/003_spor_analitigi_populerligi/img3.jpg)</center>
+<center>*Görsel: Moneyball*</center>
+<br>
+
+### Football Manager
+
+Spor istatistikleri, spor analitiği denince akla ilk gelen şeylerden biri Football Manager oyunu oluyor. Bu yüzden Football Manager'a ayrı bir parantez açalım:
+
+<center>![](assets/img/003_spor_analitigi_populerligi/img5.jpg)</center>
+<center>*Görsel: "Football Manager*</center>
+<br>
+
+**1. Veri Odaklı Oyun Mekaniği**
+
+Football Manager, bir futbol kulübünü yönetmek için geniş bir veri setine dayalı kararlar almanıza olanak tanır. Oyuncu performans verileri, takım istatistikleri, maç analizi ve daha birçok veri, kararlarınızın temelini oluşturur. Bu, gerçek dünyadaki futbol analitiğiyle çok paralel bir yapıdadır. Oyuncular, takımlarının verilerini analiz ederken xG (Beklenen Gol), pas isabet oranları, oyuncu koşuları gibi metriklere dayanarak stratejiler geliştirebilirler.
+
+**2. İstatistik ve Analitik Araçları**
+
+Football Manager, oyuncularına kapsamlı istatistik ve analitik araçlar sunar. Örneğin, oyuncu performansını değerlendirirken farklı istatistikleri bir arada kullanabilirsiniz: gol atma oranı, asistler, pas hataları, koşu mesafeleri, top kazanma oranları ve daha fazlası. Bu tür analiz araçları, gerçek futbol kulüplerinin analistlerinin kullandığı yöntemlere benzer şekilde, oyuncu verilerini anlamlı hale getirir ve karar alıcıların strateji geliştirmesini sağlar.
+
+**3. Strateji Geliştirme ve Karar Alma**
+
+Football Manager'da başarı, yalnızca şans faktörüne değil, oyuncuların eldeki veriyi ne kadar iyi analiz ettiklerine ve buna dayalı doğru stratejiler geliştirebilmelerine bağlıdır. Futbolun karmaşık yapısını çözebilmek, bir futbol kulübünü yönetmek için doğru verileri toplamak ve bu verilerle doğru kararlar almak gereklidir. Bu yönüyle oyun, spor analitiği ve strateji üzerine yoğunlaşan kişilerin ilgisini çeker.
+
+**4. Gerçekçi Simülasyon ve Maç Analizi**
+
+Football Manager, maçlar sonrası detaylı istatistikler sunar. Bu istatistikler, takımın performansını ölçmenin yanı sıra oyuncuların bireysel performanslarını da gösterir. Maçın sonucu, genellikle oyun içindeki taktiksel ayarlamalar ve oyuncu verilerine dayalı stratejilerin başarısına bağlıdır. Bu da, gerçek dünyadaki futbol analisti ve teknik direktörlerinin maçları analiz etme şekline çok benzer.
+
+**5. Veri Analizi ile İlerleme Sağlama**
+
+Football Manager, oyunculara oyuncu transferi yapma, genç oyuncu gelişimi, kulüp finansmanı gibi alanlarda da veri analizi yaparak kulüplerini daha verimli hale getirme imkânı tanır. Bu, gerçek dünyadaki futbol kulüplerinin spor analisti veya veri analisti tarafından yapılan işlere oldukça yakın bir deneyim sunar.
+
+**6. Tartışmalar ve Eğlence İçin Veriye Dayalı Temalar**
+
+Football Manager, futbolseverler ve analistler arasında veri ve istatistik temalı tartışmaların yapılmasına olanak tanır. Oyunun sunduğu kapsamlı istatistikler, futbol dünyasında veriye dayalı analizlerin artan popülaritesiyle paralel bir şekilde, analitik futbol konuşmalarının temelini oluşturur. Bu da oyunu, spor analitiği dünyası ile ilişkilendirir.
+
+**7. Eğitim ve Öğrenme Aracı**
+
+Football Manager, futbol analitiği konusunda yeni başlayanlar için bir öğrenme platformu gibi çalışabilir. Oyuncular, istatistikler ve analitik araçlar hakkında deneyim kazanırken, futbolun analitik yönlerini daha derinlemesine anlamaya başlarlar. Bu, oyuncuları daha bilinçli bir şekilde analiz yapmaya yönlendirir ve spor analitiğiyle ilgili pratik bilgi sağlar.
+
+Özetle Football Manager, futbolun takımlarını yönetme ve futbol analitiği konusundaki stratejik kararlar almak için geniş bir veri kümesi sunar. Bu nedenle oyun, futbol analitiği, veri analizi ve istatistik üzerine yoğunlaşan biri için doğal bir platform ve eğlenceli bir deneyim sunar. Oyun, futbol verisiyle ilgilenen kişilerin, istatistiksel analiz ve strateji geliştirme becerilerini test edebileceği bir simülasyon aracı olarak popülerleşmiştir. Bu yüzden, spor analitiği denildiğinde akla ilk gelen şeylerden biri hâline gelmiştir.
+
+### Özet
+
+Spor analitiğinin popülerleşmesinin tek bir açıklaması olmadığını söylemek doğru bir yaklaşım olur. Bu süreç, birden fazla faktörün birleşiminden doğmuştur ve zaman içinde farklı spor dallarında farklı başarı hikayeleriyle pekişmiştir. Teknolojik gelişmeler, başarı hikayeleri, medyanın etkisi, taktiksel gereksinimler, sponsorluk yatırımları ve yeni nesil sporcuların etkisi gibi faktörler, spor analitiğinin küresel bir fenomene dönüşmesine neden olmuştur. Spor analitiği, artık sadece profesyonel spor takımlarının değil, amatör sporcuların ve genel olarak spor meraklılarının da ilgisini çeken bir alan haline gelmiştir.
+
+<center>![](assets/img/003_spor_analitigi_populerligi/img4.jpg)</center>
+<center>*Görsel: "Spor Analitiği Nasıl Popüler Hale Geldi?" Özet*</center>
+<br>
+
+<!-- İçerik Bitişi -->
+</div>
+
+<!-- Sosyal Medya Paylaş -->
+<div class="extra-content">
+<body>
+<div class="mentorship-section">
+<h3>Sosyal Medya Hesaplarım</h3>
+<p style="text-align:center;font-size: 1.5rem;">Tüm sosyal medya hesaplarımdan beni takip edebilir ve iletişime geçebilirsiniz!</p>
+<div class="social-icons text-center mt-4">
+<a href="https://www.linkedin.com/in/ekrem-bayar/" target="_blank">
+<i class="fab fa-linkedin"></i>
+</a>
+<a href="https://x.com/EkremBayar_" target="_blank">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="25" height="25" fill="currentColor">
+<path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"></path>
+</svg>
+</a>
+<a href="https://www.instagram.com/ekrembayar_" target="_blank">
+<i class="fab fa-instagram"></i>
+</a>
+<a href="https://github.com/EkremBayar" target="_blank">
+<i class="fab fa-github"></i>
+</a>
+<a href="https://www.kaggle.com/ekrembayar" target="_blank">
+<i class="fab fa-kaggle"></i>
+</a>
+<a href="https://www.youtube.com/channel/UCB_2RXBvSw7NF6P9dQlsH1Q" target="_blank">
+<i class="fab fa-youtube"></i>
+</a>
+</div>
+<hr>
+<h3>Spor Analitiği Mentörlük ve Kariyer Önerileri</h3>
+<p style="font-size: 1.5rem;">Spor analitiği kariyerinize başlamak ya da bu alanda daha da ilerlemek mi istiyorsunuz? Sizlere özel olarak, spor analitiği kariyer önerileri hakkında 1 saatlik online görüşme imkanı sunuyorum!</p>
+<a href="https://cal.com/ekrem-bayar-5yvub1/60min" target="_blank" class="custom-button">Randevu Al</a>
+</div>
+</body>
+
+<!-- Sosyal Medya Paylaş -->
+<head>
+<!-- Font Awesome ikonu için link -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+<style>
+/* Genel sosyal medya paylaşım kutusu */
+.social-share {
+text-align: center;
+margin-top: 30px;
+}
+.social-share p {
+font-size: 1.5rem;
+font-weight: 600;
+color: #333;
+margin-bottom: 20px;
+}
+/* Butonlar için ortak stil */
+.social-buttons {
+display: flex;
+justify-content: center;
+gap: 15px; /* Butonlar arasına boşluk */
+}
+.social-buttons a {
+display: flex;
+align-items: center;
+justify-content: center;
+text-decoration: none;
+padding: 12px 20px;
+border-radius: 30px;
+color: #fff;
+font-size: 1.1rem;
+transition: all 0.3s ease;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.social-buttons a:hover {
+transform: scale(1.1);
+}
+/* X (Twitter) Butonu */
+.x {background-color: #1da1f2; /* X (Twitter) için mavi renk */}
+/* LinkedIn Butonu */
+.linkedin {background-color: #0077b5;}
+/* WhatsApp Butonu */
+.whatsapp {background-color: #25d366;}
+/* İkonların butonla uyumlu olması için */
+.social-buttons a i, .social-buttons a svg {
+margin-right: 10px;
+font-size: 1.5rem;
+}
+</style>
+</head>
+
+<body>
+<div class="social-share">
+<p>Bu makaleyi paylaşın:</p>
+
+<!-- Butonlar yanyana olacak -->
+<div class="social-buttons">
+<!-- X Share Button -->
+<a id="x-share" class="x" href="#" target="_blank">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="40px" height="15px" fill="currentColor">
+<path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"></path>
+</svg> X'te Paylaş
+</a>
+
+<!-- LinkedIn Share Button -->
+<a id="linkedin-share" class="linkedin" href="#" target="_blank">
+<i class="fab fa-linkedin"></i> LinkedIn'de Paylaş
+</a>
+
+<!-- WhatsApp Share Button -->
+<a id="whatsapp-share" class="whatsapp" href="#" target="_blank">
+<i class="fab fa-whatsapp"></i> WhatsApp'ta Paylaş
+</a>
+</div>
+
+<script>
+// Sayfa URL'sini dinamik olarak alıyoruz
+var currentUrl = window.location.href;
+// Sosyal medya paylaşımlarını dinamik URL ile ayarlıyoruz
+document.getElementById("x-share").href = "https://twitter.com/intent/tweet?url=" + encodeURIComponent(currentUrl) + "&text=Okumak%20isterim:%20Süper%20makale!";
+document.getElementById("linkedin-share").href = "https://www.linkedin.com/shareArticle?mini=true&url=" + encodeURIComponent(currentUrl);
+document.getElementById("whatsapp-share").href = "https://api.whatsapp.com/send?text=" + encodeURIComponent("Okumak%20isterim:%20Süper%20makale!%20") + encodeURIComponent(currentUrl);
+</script>
+</body>
+</div>
+
+<!-- Footer-->
+<html>
+<body>
+<footer>
+<div class="container px-4 px-lg-5">
+<div class="row gx-4 gx-lg-5 justify-content-center">
+<div class="col-md-10 col-lg-8 col-xl-7">
+<div class="small text-center text-muted fst-italic">Copyright &copy; Ekrem Bayar</div>
+</div>
+</div>
+</div>
+</footer>
+<!-- En Üste Dön Butonu -->
+<button id="scrollToTopBtn" class="scroll-to-top" onclick="scrollToTop()">
+<i class="fas fa-arrow-up"></i>
+</button>
+<!-- Bootstrap core JS-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Core theme JS-->
+<script src="js/scripts.js"></script>
+</body>
+</html>
